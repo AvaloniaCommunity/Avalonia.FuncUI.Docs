@@ -12,7 +12,7 @@ open Fake.IO.Globbing.Operators
 open Fake.Core.TargetOperators
 
 Target.initEnvironment()
-let docsOutputPath = Path.getFullName "../../docs-generated"
+let docsOutputPath = Path.getFullName "../../docs"
 
 Target.create "Clean" (fun _ ->
     let exitCode = Shell.Exec("fornax", "clean")
