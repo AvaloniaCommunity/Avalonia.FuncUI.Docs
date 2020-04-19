@@ -1,2 +1,6 @@
 src/docs/.fake
+src/docs/_public/*
 *.DS_Store
+.fake
+.ionide
+.vscode
