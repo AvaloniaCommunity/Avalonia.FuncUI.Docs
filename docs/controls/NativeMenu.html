@@ -138,7 +138,7 @@
         <article class="control box">
           <header class="control-header">
             <h1 class="title">
-              Border
+              NativeMenu
             </h1>
             <h4 class="subtitle">
               Controls
@@ -146,82 +146,76 @@
           </header>
           <section class="control-content content">
             <blockquote>
-<p><em>Note</em>: You can check the Avalonia docs for the <a href="https://avaloniaui.net/docs/controls/border">Border</a> if you need more information.</p>
-<p>For Avalonia.FuncUI's DSL properties you can check <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Border.fs">Border.fs</a></p>
+<p>You can check the <a href="https://avaloniaui.net/docs/controls/nativemenu">NativeMenu</a> Avalonia docs for more information</p>
 </blockquote>
-<p>The Border controll allows you to decorate child controls</p>
+<p>Native menus were introduced in Avalonia in version 0.9.0 you can check the <a href="https://avaloniaui.net/blog/#osx-linux-native-menus">announcement</a> to see a brief explanation on how to use them in Avalonia Applications.</p>
+<p>Currently for Avalonia.FuncUI there is not a DSL and the NativeMenu control is in a weird spot for Avalonia.FuncUI since this control works directly on the main Application/Window object so it's though to pull a DSL on top of that. But! thankfully you can just use plain F# for the menu as noted <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/issues/113">in this issue</a>.</p>
 <h2 id="usage">Usage</h2>
-<p><strong>Set Background</strong>
-Avalonia.FuncUI has some overloads for you to take advantage on</p>
-<pre><code class="language-fsharp">Border.create [
-	Border.background &quot;black&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-Border.create [
-	Border.background &quot;#000000&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
+<p>Inside your <code>Program.fs</code> File find the <code>App</code> class and be sure to set the name of your Application</p>
+<pre><code class="language-fsharp">type MainWindow() as this = (*... code ... *)
+
+type App() =
+    inherit Application()
+
+    override this.Initialize() =
+        this.Styles.Load &quot;avares://Avalonia.Themes.Default/DefaultTheme.xaml&quot;
+        this.Styles.Load &quot;avares://Avalonia.Themes.Default/Accents/BaseDark.xaml&quot;
+
+        // 🚩name visible in native menu
+        this.Name &lt;- &quot;Counter App&quot;
+
+    override this.OnFrameworkInitializationCompleted() =
+        match this.ApplicationLifetime with
+        | :? IClassicDesktopStyleApplicationLifetime as desktopLifetime -&gt;
+            desktopLifetime.MainWindow &lt;- MainWindow()
+        | _ -&gt; ()
 </code></pre>
-<blockquote>
-<p>You can pass any <a href="https://avaloniaui.net/api/Avalonia.Media/IBrush/">IBrush</a> compatible instance for the background for more control</p>
-</blockquote>
-<p><strong>Set Border Brush</strong>
-Avalonia.FuncUI has some overloads for you to take advantage on</p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderBrush &quot;red&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
+<p>then just create a new NativeMenu</p>
+<pre><code class="language-fsharp">type MainWindow() as this = 
+    inherit HostWindow()
+    do
+        base.Title &lt;- &quot;Counter Example&quot;
+        base.Height &lt;- 400.0
+        base.Width &lt;- 400.0
+
+        // 🚩create menu and menu items
+        let incrementItem = NativeMenuItem &quot;Increment&quot;
+        let decrementItem = NativeMenuItem &quot;Decrement&quot;
+        
+        let editCounterItem = NativeMenuItem &quot;Edit Counter&quot;
+        let editCounterMenu =  NativeMenu()
+        editCounterItem.Menu &lt;- editCounterMenu
+        editCounterMenu.Add incrementItem
+        editCounterMenu.Add decrementItem
+        
+        let nativeMenu = NativeMenu()
+        nativeMenu.Add editCounterItem
+        
+        // 🚩set menu
+        NativeMenu.SetMenu(this, nativeMenu)
+
+        Elmish.Program.mkSimple (fun () -&gt; Counter.init) Counter.update Counter.view
+        |&gt; Program.withHost this
+        |&gt; Program.withConsoleTrace
+        |&gt; Program.run
 </code></pre>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderBrush &quot;#FF0000&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
+<p>and that is enough to show your native menu, if you want to interact with the contents of your menu (the most likely scenario) you will need to add some subscriptions to hook up with your Elmish program</p>
+<pre><code class="language-fsharp">// 🚩hook menu actions in Elmish
+let menuSub (_state: Counter.State) =
+    let sub (dispatch: Counter.Msg -&gt; unit) =
+        incrementItem.Clicked.Add (fun _ -&gt; dispatch Counter.Msg.Increment)
+        decrementItem.Clicked.Add (fun _ -&gt; dispatch Counter.Msg.Decrement)
+        ()
+    Cmd.ofSub sub
+
+Elmish.Program.mkSimple (fun () -&gt; Counter.init) Counter.update Counter.view
+|&gt; Program.withHost this
+// 🚩 use menu subscription
+|&gt; Program.withSubscription menuSub
+
+|&gt; Program.withConsoleTrace
+|&gt; Program.run
 </code></pre>
-<blockquote>
-<p>You can pass any <a href="https://avaloniaui.net/api/Avalonia.Media/IBrush/">IBrush</a> compatible instance for the background for more control</p>
-</blockquote>
-<p><strong>Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Horizontal and Vertical Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Left, Top, Right, Bottom Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<blockquote>
-<p>You can also pass a <a href="https://avaloniaui.net/api/Avalonia/Thickness/">Thickness</a> struct to the borderThickness property</p>
-</blockquote>
-<p><strong>Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Horizontal and Vertical Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Left, Top, Right, Bottom Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<blockquote>
-<p>You can also pass a <a href="https://avaloniaui.net/api/Avalonia/CornerRadius/">Corner Radius</a> struct to the cornerRadius property</p>
-</blockquote>
 
           </section>
         </article>

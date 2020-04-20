@@ -12,6 +12,6 @@ let loader (projectRoot: string) (siteContent: SiteContents) =
         { title = "Avalonia.FuncUI"
           description = "Avalonia.FuncUI Website"
           showSideBar = true
-          baseUrl = "/Avalonia.FuncUI.Docs/" 
+          baseUrl = "/Avalonia.FuncUI.Docs/"
         })
     siteContent

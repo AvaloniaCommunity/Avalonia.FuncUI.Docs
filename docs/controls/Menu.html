@@ -138,7 +138,7 @@
         <article class="control box">
           <header class="control-header">
             <h1 class="title">
-              Border
+              Menu
             </h1>
             <h4 class="subtitle">
               Controls
@@ -146,82 +146,81 @@
           </header>
           <section class="control-content content">
             <blockquote>
-<p><em>Note</em>: You can check the Avalonia docs for the <a href="https://avaloniaui.net/docs/controls/border">Border</a> if you need more information.</p>
-<p>For Avalonia.FuncUI's DSL properties you can check <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Border.fs">Border.fs</a></p>
+<p><em>Note</em>: You can check the Avalonia docs for the <a href="https://avaloniaui.net/api/Avalonia.Controls/Menu/">Menu API</a> and <a href="http://avaloniaui.net/docs/controls/menu">Menu</a> if you need more information.</p>
+<p>For Avalonia.FuncUI's DSL properties you can check <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Menu.fs">Menu.fs</a></p>
 </blockquote>
-<p>The Border controll allows you to decorate child controls</p>
+<p>The menu control allows you to add a list of buttons in a horizontal manner which supports sub-items, it's usually put at the top of the application inside a DockPanel, but it can be placed anywhere in the application.</p>
 <h2 id="usage">Usage</h2>
-<p><strong>Set Background</strong>
-Avalonia.FuncUI has some overloads for you to take advantage on</p>
-<pre><code class="language-fsharp">Border.create [
-	Border.background &quot;black&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+<p><strong>Top-Level Menu Items</strong></p>
+<p>To create top-level navigation menus you just need to provide a list of <code>MenuItem</code> controls and use the <code>.viewItems</code> property on the <a href="http://avaloniaui.net/docs/controls/menu">Menu</a> control</p>
+<pre><code class="language-fsharp">let menuItems = [
+    MenuItem.Create [
+        MenuItem.header &quot;File&quot;
+    ]
+    MenuItem.Create [
+        MenuItem.header &quot;Edit&quot;
+    ]
 ]
-Border.create [
-	Border.background &quot;#000000&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<blockquote>
-<p>You can pass any <a href="https://avaloniaui.net/api/Avalonia.Media/IBrush/">IBrush</a> compatible instance for the background for more control</p>
-</blockquote>
-<p><strong>Set Border Brush</strong>
-Avalonia.FuncUI has some overloads for you to take advantage on</p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderBrush &quot;red&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+
+Menu.create [
+  Menu.viewItems menuItems
 ]
 </code></pre>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderBrush &quot;#FF0000&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+<p><strong>Set Sub-Menus</strong></p>
+<p>Each MenuItem can contain MenuItems themselves if you need a sub-menu you just need to provide the appropriate children</p>
+<pre><code class="language-fsharp">let fileItems = [
+  MenuItem.Create [
+        MenuItem.header &quot;Open File&quot;
+  ]
+  MenuItem.Create [
+      MenuItem.header &quot;Open Folder&quot;
+  ]
+]
+
+let menuItems = [
+    MenuItem.Create [
+        MenuItem.header &quot;Files&quot;
+        MenuItem.viewItems fleItems
+    ]
+    MenuItem.Create [
+        MenuItem.header &quot;Preferences&quot;
+    ]
+]
+
+Menu.create [
+  Menu.viewItems menuItems
 ]
 </code></pre>
-<blockquote>
-<p>You can pass any <a href="https://avaloniaui.net/api/Avalonia.Media/IBrush/">IBrush</a> compatible instance for the background for more control</p>
-</blockquote>
-<p><strong>Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+<p><strong>Set Icons</strong></p>
+<p>To set Icons to the menu item you just need to provide an <a href="http://avaloniaui.net/docs/controls/image">Image</a>
+you can check this <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Shell.fs#L162">sample</a> which uses an extension method defined in <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Extensions.fs#L5">this file</a></p>
+<pre><code class="language-fsharp">let icon = (* obtain an Image instance *)
+let menuItems = [
+    MenuItem.Create [
+        MenuItem.header &quot;Files&quot;
+        MenuItem.icon icon
+    ]
+    MenuItem.Create [
+        MenuItem.header &quot;Preferences&quot;
+    ]
+]
+
+Menu.create [
+  Menu.viewItems menuItems
 ]
 </code></pre>
-<p><strong>Horizontal and Vertical Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+<p><strong>Dispatch Actions From Menu Items</strong></p>
+<pre><code class="language-fsharp">let menuItems = [
+    MenuItem.Create [
+        MenuItem.header &quot;About&quot;
+        MenuItem.onClick(fun _ -&gt; dispatch GoToAbout)
+    ]
+]
+
+Menu.create [
+  Menu.viewItems menuItems
 ]
 </code></pre>
-<p><strong>Left, Top, Right, Bottom Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<blockquote>
-<p>You can also pass a <a href="https://avaloniaui.net/api/Avalonia/Thickness/">Thickness</a> struct to the borderThickness property</p>
-</blockquote>
-<p><strong>Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Horizontal and Vertical Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Left, Top, Right, Bottom Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<blockquote>
-<p>You can also pass a <a href="https://avaloniaui.net/api/Avalonia/CornerRadius/">Corner Radius</a> struct to the cornerRadius property</p>
-</blockquote>
 
           </section>
         </article>
