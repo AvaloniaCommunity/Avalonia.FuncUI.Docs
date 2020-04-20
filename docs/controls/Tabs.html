@@ -111,6 +111,21 @@
                   DatePicker
                 </a>
               </li>
+              <li>
+                <a href="controls/Menu.html">
+                  Menu
+                </a>
+              </li>
+              <li>
+                <a href="controls/NativeMenu.html">
+                  NativeMenu
+                </a>
+              </li>
+              <li>
+                <a href="controls/Tabs.html">
+                  TabControl
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -123,7 +138,7 @@
         <article class="control box">
           <header class="control-header">
             <h1 class="title">
-              Border
+              TabControl
             </h1>
             <h4 class="subtitle">
               Controls
@@ -131,82 +146,69 @@
           </header>
           <section class="control-content content">
             <blockquote>
-<p><em>Note</em>: You can check the Avalonia docs for the <a href="https://avaloniaui.net/docs/controls/border">Border</a> if you need more information.</p>
-<p>For Avalonia.FuncUI's DSL properties you can check <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Border.fs">Border.fs</a></p>
+<p><em>Note</em>: You can check the Avalonia docs for the <a href="https://avaloniaui.net/api/Avalonia.Controls/TabControl/">TabControl API</a> and <a href="http://avaloniaui.net/docs/controls/tabcontrol">TabControl</a> if you need more information.</p>
+<p>For Avalonia.FuncUI's DSL properties you can check <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/TabControl.fs">TabControl.fs</a></p>
 </blockquote>
-<p>The Border controll allows you to decorate child controls</p>
-<h2 id="usage">Usage</h2>
-<p><strong>Set Background</strong>
-Avalonia.FuncUI has some overloads for you to take advantage on</p>
-<pre><code class="language-fsharp">Border.create [
-	Border.background &quot;black&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+<p>The <a href="http://avaloniaui.net/docs/controls/tabcontrol">TabControl</a> offers you a way to present content inside your application, each tab contains a different set of controls.</p>
+<p><strong>Set Tabs</strong></p>
+<pre><code class="language-fsharp">let homePageContent = DockPanel.create [ TextBox.create [ TextBox.text &quot;Home&quot; ] ]
+let aboutPageContent = DockPanel.create [ TextBox.create [ TextBox.text &quot;About&quot; ] ]
+
+let tabs = [
+    TabItem.create [
+        TabItem.header &quot;Home&quot;
+        TabItem.content homePageContent
+    ]
+    TabItem.create [
+        TabItem.header &quot;About&quot;
+        TabItem.content aboutPageContent
+    ]
 ]
-Border.create [
-	Border.background &quot;#000000&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<blockquote>
-<p>You can pass any <a href="https://avaloniaui.net/api/Avalonia.Media/IBrush/">IBrush</a> compatible instance for the background for more control</p>
-</blockquote>
-<p><strong>Set Border Brush</strong>
-Avalonia.FuncUI has some overloads for you to take advantage on</p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderBrush &quot;red&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+
+TabControl.create [
+    TabControl.tabStripPlacement Dock.Left // Change this property to tell the app where to show the tab bar
+    TabControl.viewItems tabs
 ]
 </code></pre>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderBrush &quot;#FF0000&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+<p><strong>Set HostControl as content</strong></p>
+<p>You can also include individual Elmish Controls as the content of your tabs by using the <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.ControlCatalog/Views/MainView.fs#L36">ViewBuilder</a>
+visit the <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.ControlCatalog/Views/MainView.fs">example</a> to see it in action</p>
+<pre><code class="language-fsharp">// counter.fs
+module Counter = 
+    type State = (* state definition *)
+    type Msg = (* message definition *)
+    let init = (* init definition *)
+    let update state msg = (* update definition *)
+    let view state dispatch = (* view definition *)
+
+    // encapsule the Elmish architecture in this Host Control
+    type Host() as this =
+        inherit HostControl()
+        do
+            Elmish.Program.mkSimple (fun () -&gt; init) update view
+            |&gt; Program.withHost this
+            |&gt; Program.run
+
+// Program.fs
+```fsharp
+let aboutPageContent = DockPanel.create [ TextBox.create [ TextBox.text &quot;About&quot; ] ]
+let tabs = [
+    TabItem.create [
+        TabItem.header &quot;Counter&quot;
+        // use the ViewBuilder to be able to use the Counter module in a stand alone
+        TabItem.content (ViewBuilder.Create&lt;Counter.Host&gt;([]))
+    ]
+    TabItem.create [
+        TabItem.header &quot;About&quot;
+        TabItem.content aboutPageContent
+    ]
+]
+
+TabControl.create [
+    TabControl.viewItems tabs
 ]
 </code></pre>
-<blockquote>
-<p>You can pass any <a href="https://avaloniaui.net/api/Avalonia.Media/IBrush/">IBrush</a> compatible instance for the background for more control</p>
-</blockquote>
-<p><strong>Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Horizontal and Vertical Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Left, Top, Right, Bottom Thickness</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<blockquote>
-<p>You can also pass a <a href="https://avaloniaui.net/api/Avalonia/Thickness/">Thickness</a> struct to the borderThickness property</p>
-</blockquote>
-<p><strong>Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Horizontal and Vertical Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<p><strong>Left, Top, Right, Bottom Corner Radius</strong></p>
-<pre><code class="language-fsharp">Border.create [
-	Border.borderCorner Radius 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
-]
-</code></pre>
-<blockquote>
-<p>You can also pass a <a href="https://avaloniaui.net/api/Avalonia/CornerRadius/">Corner Radius</a> struct to the cornerRadius property</p>
-</blockquote>
+<p>In the example above the <code>Counter</code> module defines a <a href="controls/HostControl.html">HostControl</a> to allow that module to work by itself this means you don't need to nest every view/control inside the main Elmish module of your app this can help you to reduce boilerplate and to reduce complexity in the main module of your application</p>
 
           </section>
         </article>
@@ -276,6 +278,21 @@ Avalonia.FuncUI has some overloads for you to take advantage on</p>
               <li>
                 <a href="controls/DatePicker.html">
                   DatePicker
+                </a>
+              </li>
+              <li>
+                <a href="controls/Menu.html">
+                  Menu
+                </a>
+              </li>
+              <li>
+                <a href="controls/NativeMenu.html">
+                  NativeMenu
+                </a>
+              </li>
+              <li>
+                <a href="controls/Tabs.html">
+                  TabControl
                 </a>
               </li>
             </ul>

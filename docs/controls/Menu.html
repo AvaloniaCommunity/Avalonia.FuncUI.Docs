@@ -36,7 +36,7 @@
           <a class="navbar-item is-light" href="guides.html">
             Guides
           </a>
-          <a class="navbar-item is-active is-light" href="release-notes.html">
+          <a class="navbar-item is-light" href="release-notes.html">
             Release Notes
           </a>
           <a class="navbar-item is-light" href="about.html">
@@ -111,6 +111,21 @@
                   DatePicker
                 </a>
               </li>
+              <li>
+                <a href="controls/Menu.html">
+                  Menu
+                </a>
+              </li>
+              <li>
+                <a href="controls/NativeMenu.html">
+                  NativeMenu
+                </a>
+              </li>
+              <li>
+                <a href="controls/Tabs.html">
+                  TabControl
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -120,12 +135,94 @@
         <ul class="menu-list"></ul>
       </aside>
       <div class="page-content">
-        <article class="release-notes">
-          <header class="release-notes-header">
+        <article class="control box">
+          <header class="control-header">
             <h1 class="title">
-              Release Notes
+              Menu
             </h1>
+            <h4 class="subtitle">
+              Controls
+            </h4>
           </header>
+          <section class="control-content content">
+            <blockquote>
+<p><em>Note</em>: You can check the Avalonia docs for the <a href="https://avaloniaui.net/api/Avalonia.Controls/Menu/">Menu API</a> and <a href="http://avaloniaui.net/docs/controls/menu">Menu</a> if you need more information.</p>
+<p>For Avalonia.FuncUI's DSL properties you can check <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Menu.fs">Menu.fs</a></p>
+</blockquote>
+<p>The menu control allows you to add a list of buttons in a horizontal manner which supports sub-items, it's usually put at the top of the application inside a DockPanel, but it can be placed anywhere in the application.</p>
+<h2 id="usage">Usage</h2>
+<p><strong>Top-Level Menu Items</strong></p>
+<p>To create top-level navigation menus you just need to provide a list of <code>MenuItem</code> controls and use the <code>.viewItems</code> property on the <a href="http://avaloniaui.net/docs/controls/menu">Menu</a> control</p>
+<pre><code class="language-fsharp">let menuItems = [
+    MenuItem.Create [
+        MenuItem.header &quot;File&quot;
+    ]
+    MenuItem.Create [
+        MenuItem.header &quot;Edit&quot;
+    ]
+]
+
+Menu.create [
+  Menu.viewItems menuItems
+]
+</code></pre>
+<p><strong>Set Sub-Menus</strong></p>
+<p>Each MenuItem can contain MenuItems themselves if you need a sub-menu you just need to provide the appropriate children</p>
+<pre><code class="language-fsharp">let fileItems = [
+  MenuItem.Create [
+        MenuItem.header &quot;Open File&quot;
+  ]
+  MenuItem.Create [
+      MenuItem.header &quot;Open Folder&quot;
+  ]
+]
+
+let menuItems = [
+    MenuItem.Create [
+        MenuItem.header &quot;Files&quot;
+        MenuItem.viewItems fleItems
+    ]
+    MenuItem.Create [
+        MenuItem.header &quot;Preferences&quot;
+    ]
+]
+
+Menu.create [
+  Menu.viewItems menuItems
+]
+</code></pre>
+<p><strong>Set Icons</strong></p>
+<p>To set Icons to the menu item you just need to provide an <a href="http://avaloniaui.net/docs/controls/image">Image</a>
+you can check this <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Shell.fs#L162">sample</a> which uses an extension method defined in <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Extensions.fs#L5">this file</a></p>
+<pre><code class="language-fsharp">let icon = (* obtain an Image instance *)
+let menuItems = [
+    MenuItem.Create [
+        MenuItem.header &quot;Files&quot;
+        MenuItem.icon icon
+    ]
+    MenuItem.Create [
+        MenuItem.header &quot;Preferences&quot;
+    ]
+]
+
+Menu.create [
+  Menu.viewItems menuItems
+]
+</code></pre>
+<p><strong>Dispatch Actions From Menu Items</strong></p>
+<pre><code class="language-fsharp">let menuItems = [
+    MenuItem.Create [
+        MenuItem.header &quot;About&quot;
+        MenuItem.onClick(fun _ -&gt; dispatch GoToAbout)
+    ]
+]
+
+Menu.create [
+  Menu.viewItems menuItems
+]
+</code></pre>
+
+          </section>
         </article>
       </div>
     </main>
@@ -193,6 +290,21 @@
               <li>
                 <a href="controls/DatePicker.html">
                   DatePicker
+                </a>
+              </li>
+              <li>
+                <a href="controls/Menu.html">
+                  Menu
+                </a>
+              </li>
+              <li>
+                <a href="controls/NativeMenu.html">
+                  NativeMenu
+                </a>
+              </li>
+              <li>
+                <a href="controls/Tabs.html">
+                  TabControl
                 </a>
               </li>
             </ul>

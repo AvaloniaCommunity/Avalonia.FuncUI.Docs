@@ -1,8 +1,8 @@
 ﻿# Docs
 [Fornax]: https://github.com/ionide/Fornax
-[guides]:
-[posts]:
-[controls]
+[guides]:./guides
+[posts]: ./posts
+[controls]: ./controls
 
 The docs website is built using [Fornax], to contribute to the docs you can add a new (or update an existing) markdown file in the
 [guides], [posts], [controls] directories.
