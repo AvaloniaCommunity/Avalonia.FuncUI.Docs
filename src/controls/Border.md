@@ -24,11 +24,11 @@ Avalonia.FuncUI has some overloads for you to take advantage on
 ```fsharp
 Border.create [
 	Border.background "black"
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 Border.create [
 	Border.background "#000000"
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 > You can pass any [IBrush] compatible instance for the background for more control
@@ -39,13 +39,13 @@ Avalonia.FuncUI has some overloads for you to take advantage on
 ```fsharp
 Border.create [
 	Border.borderBrush "red"
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 ```fsharp
 Border.create [
 	Border.borderBrush "#FF0000"
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 > You can pass any [IBrush] compatible instance for the background for more control
@@ -55,7 +55,7 @@ Border.create [
 ```fsharp
 Border.create [
 	Border.borderThickness 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 
@@ -63,7 +63,7 @@ Border.create [
 ```fsharp
 Border.create [
 	Border.borderThickness 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 
@@ -71,7 +71,7 @@ Border.create [
 ```fsharp
 Border.create [
 	Border.borderThickness 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 > You can also pass a [Thickness] struct to the borderThickness property
@@ -81,7 +81,7 @@ Border.create [
 ```fsharp
 Border.create [
 	Border.borderCorner Radius 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 
@@ -89,7 +89,7 @@ Border.create [
 ```fsharp
 Border.create [
 	Border.borderCorner Radius 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 
@@ -97,7 +97,7 @@ Border.create [
 ```fsharp
 Border.create [
 	Border.borderCorner Radius 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 > You can also pass a [Corner Radius] struct to the cornerRadius property
