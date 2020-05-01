@@ -1,8 +1,8 @@
 ﻿# Docs
 [Fornax]: https://github.com/ionide/Fornax
-[guides]:./guides
-[posts]: ./posts
-[controls]: ./controls
+[guides]:./src/guides
+[posts]: ./src/posts
+[controls]: ./src/controls
 
 The docs website is built using [Fornax], to contribute to the docs you can add a new (or update an existing) markdown file in the
 [guides], [posts], [controls] directories.
@@ -86,7 +86,7 @@ Fornax offers a watch command that allows you to preview the website as you deve
 
 ```
 dotnet tool install fornax -g
-cd src/docs
+cd src
 fornax watch
 ```
 
@@ -103,7 +103,7 @@ To update the website, we have to build the docs sources, we use a fake script f
 
 ```
 dotnet tool install fornax -g
-cd src/docs
+cd src
 ./fake run build.fsx -t CopyDocs
 ```
 now you can push or PR the built website, after a few minutes of the PR (or change) being merged into master the website will reflect these changes

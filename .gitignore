@@ -1,5 +1,5 @@
-src/docs/.fake
-src/docs/_public/*
+src/.fake
+src/_public/*
 *.DS_Store
 .fake
 .ionide
