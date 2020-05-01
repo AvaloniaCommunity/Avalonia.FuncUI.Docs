@@ -2,17 +2,15 @@
 nuget Fake.DotNet.Cli
 nuget Fake.IO.FileSystem
 nuget Fake.Core.Target //"
+
 #load ".fake/build.fsx/intellisense.fsx"
 
 open Fake.Core
-open Fake.DotNet
 open Fake.IO
-open Fake.IO.FileSystemOperators
-open Fake.IO.Globbing.Operators
 open Fake.Core.TargetOperators
 
-Target.initEnvironment()
-let docsOutputPath = Path.getFullName "../../docs"
+Target.initEnvironment ()
+let docsOutputPath = Path.getFullName "../docs"
 
 Target.create "Clean" (fun _ ->
     let exitCode = Shell.Exec("fornax", "clean")
@@ -30,10 +28,10 @@ Target.create "CopyDocs" (fun _ ->
     Trace.tracefn "Creating Output Directory: %s" docsOutputPath
     Shell.mkdir docsOutputPath
     let src = Path.getFullName "./_public"
-    let copied = 
+
+    let copied =
         match Path.isDirectory src with
-        | true ->
-            Shell.copyRecursive src docsOutputPath false
+        | true -> Shell.copyRecursive src docsOutputPath false
         | false ->
             Trace.tracefn "No _public directory detected aborting..."
             List.empty
@@ -41,8 +39,8 @@ Target.create "CopyDocs" (fun _ ->
     Trace.tracefn "Publishing docs to %s" docsOutputPath
 
     for path in copied do
-        Trace.tracefn "%s" path
-)
+        Trace.tracefn "%s" path)
+
 "Clean" ==> "CleanDocs" ==> "Build" ==> "CopyDocs"
 
 Target.create "All" ignore

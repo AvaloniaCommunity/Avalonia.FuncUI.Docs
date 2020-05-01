@@ -142,7 +142,7 @@ let layout (ctx : SiteContents) active bodyCnt =
             nav [Class "navbar is-funcui is-fixed-top"] [
                 div [Class "container"] [
                     div [Class "navbar-brand"] [
-                        a [Class "navbar-item brand-link"; Href "/"] [
+                        a [Class "navbar-item brand-link"; Href baseurl] [
                             img [Src "https://raw.githubusercontent.com/AvaloniaCommunity/Avalonia.FuncUI/master/github/img/logo/FuncUI.png"; Alt "Logo"]
                         ]
                         span [Class "navbar-burger burger"; Custom ("data-target", "navbarMenu")] [
