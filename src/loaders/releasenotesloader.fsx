@@ -66,30 +66,30 @@ let loadFile n =
     let link = System.IO.Path.Combine("release-notes", (n |> System.IO.Path.GetFileNameWithoutExtension) + ".html").Replace("\\", "/")
 
     let title = config |> List.find (fun n -> n.ToLower().StartsWith "title" ) |> fun n -> n.Split(':').[1] |> trimString
-    let version = 
+    let version =
         try
-            config 
-            |> List.tryFind(fun n -> n.ToLower().StartsWith "version") 
+            config
+            |> List.tryFind(fun n -> n.ToLower().StartsWith "version")
             |> Option.map (fun n -> n.Split(':').[1] |> trimString)
         with
         | _ -> None
 
     let codename =
         try
-            config 
-            |> List.tryFind(fun n -> n.ToLower().StartsWith "guide-category") 
+            config
+            |> List.tryFind(fun n -> n.ToLower().StartsWith "guide-category")
             |> Option.map (fun n -> n.Split(':').[1]  |> trimString)
         with
         | _ -> None
 
     let published =
         try
-            config 
+            config
             |> List.tryFind (fun n -> n.ToLower().StartsWith "published" )
-            |> Option.map 
-                (fun n -> 
-                    n.Split(':').[1] 
-                    |> trimString 
+            |> Option.map
+                (fun n ->
+                    n.Split(':').[1]
+                    |> trimString
                     |> System.DateTime.Parse)
         with
         | _ -> None

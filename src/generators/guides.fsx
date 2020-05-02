@@ -10,8 +10,8 @@ let generate' (ctx : SiteContents) (_: string) =
     | Some siteInfo ->
         ctx.Add({ siteInfo with showSideBar = false })
     | None -> ()
-    let groups = 
-        ctx.TryGetValues<Guideloader.Guide> () 
+    let groups =
+        ctx.TryGetValues<Guideloader.Guide> ()
         |> Option.defaultValue Seq.empty<Guideloader.Guide>
         |> Seq.sortBy(fun g -> g.listOrder)
         |> Seq.groupBy(fun g -> g.guideCategory)

@@ -19,7 +19,7 @@ type ControlGroup =
         | "controls" -> Controls
         | "primitives" -> Primitives
         | _ -> Uncategorized
-    
+
     member this.ToString() =
         match this with
         | Controls      -> "Controls"
@@ -80,18 +80,18 @@ let loadFile n =
     let file = System.IO.Path.Combine("controls", (n |> System.IO.Path.GetFileNameWithoutExtension) + ".md").Replace("\\", "/")
     let link = System.IO.Path.Combine("controls", (n |> System.IO.Path.GetFileNameWithoutExtension) + ".html").Replace("\\", "/")
 
-    let name = 
-        config 
-        |> List.find (fun n -> n.ToLower().StartsWith "name" ) 
+    let name =
+        config
+        |> List.find (fun n -> n.ToLower().StartsWith "name" )
         |> fun n -> n.Split(':').[1] |> trimString
-    let group = 
+    let group =
         try
-            config 
-            |> List.tryFind(fun n -> n.ToLower().StartsWith "group") 
+            config
+            |> List.tryFind(fun n -> n.ToLower().StartsWith "group")
             |> Option.map
-                (fun n -> 
-                    n.Split(':').[1] 
-                    |> trimString 
+                (fun n ->
+                    n.Split(':').[1]
+                    |> trimString
                     |> ControlGroup.FromString)
         with
         | _ -> None

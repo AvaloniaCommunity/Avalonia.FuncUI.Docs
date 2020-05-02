@@ -14,7 +14,7 @@ group: controls
 >
 > For Avalonia.FuncUI's DSL properties you can check [Border.fs]
 
-The Border controll allows you to decorate child controls 
+The Border controll allows you to decorate child controls
 
 ## Usage
 
@@ -62,7 +62,7 @@ Border.create [
 **Horizontal and Vertical Thickness**
 ```fsharp
 Border.create [
-	Border.borderThickness 2.0 5.0
+	Border.borderThickness (2.0, 5.0)
 	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
@@ -70,7 +70,7 @@ Border.create [
 **Left, Top, Right, Bottom Thickness**
 ```fsharp
 Border.create [
-	Border.borderThickness 1.0 2.0 3.0 4.0
+	Border.borderThickness (1.0, 2.0, 3.0, 4.0)
 	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```

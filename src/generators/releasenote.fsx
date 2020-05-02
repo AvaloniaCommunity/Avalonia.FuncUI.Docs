@@ -14,14 +14,14 @@ let generate' (ctx : SiteContents) (page: string) =
         article [Class "release-note box"] [
             header [Class "release-note-header"] [
                 h1 [Class "title"] [!!releaseNote.title]
-                match releaseNote.codename with 
+                match releaseNote.codename with
                     | Some codename -> h4 [Class "subtitle"] [ !!codename ]
                     | None -> !!""
-                match releaseNote.version with 
+                match releaseNote.version with
                 | Some version -> small [] [!! ("v" + version) ]
                 | None -> !!""
 
-                match releaseNote.published with 
+                match releaseNote.published with
                 | Some date -> small [] [!! (" Published at:" + date.ToLongDateString()) ]
                 | None -> !!""
             ]

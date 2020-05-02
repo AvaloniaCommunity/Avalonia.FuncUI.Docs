@@ -8,7 +8,7 @@ group: controls
 [CheckBox.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/CheckBox.fs
 
 > *Note*: You can check the Avalonia docs for the [CheckBox] and [CheckBox API] if you need more information.
-> 
+>
 > For Avalonia.FuncUI's DSL properties you can check [CheckBox.fs]
 
 The checkbox is a control that allows a user to represent boolean values or the absense of a value
@@ -48,7 +48,7 @@ CheckBox.create [
 You can mix and match the three states of a checkbox. In this example
 if the count value is greater than 0 the box will be checked, if the value is 0 then it will be indeterminate lastly if the value is less than 0 it will be unchecked
 ```fsharp
-let isChecked = 
+let isChecked =
     if state.count = 0 then
         None
     else if state.count > 0 then
@@ -59,7 +59,7 @@ let isChecked =
 CheckBox.create [
     CheckBox.content "Dynamic CheckBox"
     // this is not required
-    Checkbox.isEnabled false 
+    Checkbox.isEnabled false
     CheckBox.isThreeState (state.count = 0)
     CheckBox.isChecked isChecked
 ]

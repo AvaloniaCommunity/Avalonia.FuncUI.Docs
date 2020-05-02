@@ -15,11 +15,11 @@ let generate' (ctx : SiteContents) (page: string) =
             header [Class "post-header"] [
                 h1 [Class "title"] [!!post.title]
                 h4 [Class "subtitle"] [
-                    match post.author with 
+                    match post.author with
                     | Some author -> !!author
                     | None -> !!"Avalonia Community"
                 ]
-                match post.published with 
+                match post.published with
                 | Some date -> small [] [!! ("Published: " + date.ToLongDateString()) ]
                 | None -> !!""
                 section [Class "tags"] [

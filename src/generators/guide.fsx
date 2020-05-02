@@ -8,13 +8,13 @@ let generate' (ctx: SiteContents) (page: string) =
         ctx.TryGetValues<Guideloader.Guide> ()
         |> Option.defaultValue Seq.empty
         |> Seq.find (fun n -> n.file = page)
-    
+
     Layout.layout ctx guide.title (Some guide.file) [
         article [Class "guide box"] [
             header [Class "guide-header"] [
                 h1 [Class "title"] [!!guide.title]
                 h4 [Class "subtitle"] [
-                    match guide.author with 
+                    match guide.author with
                     | Some author -> !!author
                     | None -> !!"Avalonia Community"
                 ]

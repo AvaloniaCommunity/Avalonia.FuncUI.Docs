@@ -47,7 +47,7 @@ module Counter =
         match msg with
         | Increment -> { state with count =  state.count + 1 }
         | Decrement -> { state with count =  state.count - 1 }
-    
+
     let view (state: CounterState) (dispatch): IView =
         DockPanel.create [
             DockPanel.children [
@@ -57,12 +57,12 @@ module Counter =
                 ]
                 Button.create [
                     Button.onClick (fun _ -> dispatch Decrement)
-                    Button.content "click to decrement" 
+                    Button.content "click to decrement"
                 ]
                 TextBlock.create [
                     TextBlock.dock Dock.Top
                     TextBlock.text (sprintf "the count is %i" state.count)
                 ]
             ]
-        ]    
+        ]
 ```

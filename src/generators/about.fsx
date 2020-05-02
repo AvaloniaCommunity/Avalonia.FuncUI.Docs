@@ -18,7 +18,7 @@ let generate' (ctx : SiteContents) (_: string) =
       { text = "Avalonia.FuncUI .Net Templates";  url = "https://github.com/AvaloniaCommunity/Avalonia.FuncUI.ProjectTemplates" }
       { text = "Avalonia.FuncUI Examples";  url = "https://github.com/AvaloniaCommunity/Avalonia.FuncUI/tree/master/src/Examples" }
   ]
-  
+
   let linkList links =
     ul [] [
         for link in links do

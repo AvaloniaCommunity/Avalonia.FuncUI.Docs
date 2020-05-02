@@ -11,8 +11,8 @@ let generate' (ctx : SiteContents) (_: string) =
     | Some siteInfo ->
         ctx.Add({ siteInfo with showSideBar = false })
     | None -> ()
-    let posts = 
-        ctx.TryGetValues<Postloader.Post> () 
+    let posts =
+        ctx.TryGetValues<Postloader.Post> ()
         |> Option.defaultValue Seq.empty<Postloader.Post>
         |> Seq.sortByDescending(fun p -> p.published)
 
@@ -30,17 +30,17 @@ let generate' (ctx : SiteContents) (_: string) =
                             a [Href post.link] [!!post.title]
                         ]
                         h3 [Class "subtitle"] [
-                            match post.author with 
+                            match post.author with
                             | Some author ->
                                 !!("Published by: " + author)
-                            | None  -> 
+                            | None  ->
                                 !!"Published by: Avalonia Community"
                         ]
                         div [Class "tags"][
-                            for tag in post.tags do 
+                            for tag in post.tags do
                                 span [Class "tag is-link is-light"] [!!tag]
                         ]
-                        match post.published with 
+                        match post.published with
                         | Some published ->
                             small [] [
                                 !!published.ToLongDateString()
