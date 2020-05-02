@@ -176,7 +176,7 @@
         match msg with
         | Increment -&gt; { state with count =  state.count + 1 }
         | Decrement -&gt; { state with count =  state.count - 1 }
-    
+
     let view (state: CounterState) (dispatch): IView =
         DockPanel.create [
             DockPanel.children [
@@ -186,14 +186,14 @@
                 ]
                 Button.create [
                     Button.onClick (fun _ -&gt; dispatch Decrement)
-                    Button.content &quot;click to decrement&quot; 
+                    Button.content &quot;click to decrement&quot;
                 ]
                 TextBlock.create [
                     TextBlock.dock Dock.Top
                     TextBlock.text (sprintf &quot;the count is %i&quot; state.count)
                 ]
             ]
-        ]    
+        ]
 </code></pre>
 
         </section>

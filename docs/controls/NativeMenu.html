@@ -171,7 +171,7 @@ type App() =
         | _ -&gt; ()
 </code></pre>
 <p>then just create a new NativeMenu</p>
-<pre><code class="language-fsharp">type MainWindow() as this = 
+<pre><code class="language-fsharp">type MainWindow() as this =
     inherit HostWindow()
     do
         base.Title &lt;- &quot;Counter Example&quot;
@@ -181,16 +181,16 @@ type App() =
         // 🚩create menu and menu items
         let incrementItem = NativeMenuItem &quot;Increment&quot;
         let decrementItem = NativeMenuItem &quot;Decrement&quot;
-        
+
         let editCounterItem = NativeMenuItem &quot;Edit Counter&quot;
         let editCounterMenu =  NativeMenu()
         editCounterItem.Menu &lt;- editCounterMenu
         editCounterMenu.Add incrementItem
         editCounterMenu.Add decrementItem
-        
+
         let nativeMenu = NativeMenu()
         nativeMenu.Add editCounterItem
-        
+
         // 🚩set menu
         NativeMenu.SetMenu(this, nativeMenu)
 
@@ -219,6 +219,10 @@ Elmish.Program.mkSimple (fun () -&gt; Counter.init) Counter.update Counter.view
 
           </section>
         </article>
+        <a class="edit-page" href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI.Docs/blob/master/src/controls/NativeMenu.md">
+          <i class="fa fa-pencil-square-o"></i>
+           Edit this page
+        </a>
       </div>
     </main>
     <footer class="main-footer footer">

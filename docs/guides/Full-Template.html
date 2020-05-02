@@ -163,11 +163,11 @@
 <p>The &quot;About&quot; file is a pretty simple one, it contains links to useful resources, most of that functionality is explained in the Basic Template's Counter section. There's a piece though that can be useful if you intend to show links inside your application</p>
 <pre><code class="language-fsharp">let update (msg: Msg) (state: State) =
     match msg with
-    | OpenUrl link -&gt; 
-        let url = 
-            match link with 
+    | OpenUrl link -&gt;
+        let url =
+            match link with
             | FuncUIGitter -&gt; &quot;https://gitter.im/Avalonia-FuncUI&quot;
-                
+
         if RuntimeInformation.IsOSPlatform(OSPlatform.Windows) then
             let start = sprintf &quot;/c start %s&quot; url
             Process.Start(ProcessStartInfo(&quot;cmd&quot;, start)) |&gt; ignore
@@ -204,7 +204,7 @@ let update (msg: Msg) (state: State): State * Cmd&lt;_&gt; =
         let aboutState, cmd =
             About.update bpmsg state.aboutState
         { state with aboutState = aboutState },
-        /// map the message to the kind of message 
+        /// map the message to the kind of message
         /// your child control needs to handle
         Cmd.map AboutMsg cmd
     /// ... omitted code
@@ -212,7 +212,7 @@ let update (msg: Msg) (state: State): State * Cmd&lt;_&gt; =
 let view (state: State) (dispatch) =
    /// ... more omitted code
    TabItem.content (Counter.view state.counterState (CounterMsg &gt;&gt; dispatch))
-   TabItem.content (About.view state.aboutState (AboutMsg &gt;&gt; dispatch)) 
+   TabItem.content (About.view state.aboutState (AboutMsg &gt;&gt; dispatch))
    /// ... mode omitted code
 </code></pre>
 <p>The main take away from this is that most Elmish modules are structured in the same way and contain the same public functions, therefore you can use Elmish modules inside other modules themselves (<code>Shell.fs</code> is a Elmish module that includes other two Elmish modules).</p>
@@ -242,7 +242,7 @@ let view (state: State) (dispatch) =
 <pre><code class="language-fsharp">let aboutState, cmd =
     About.update bpmsg state.aboutState
 { state with aboutState = aboutState },
-/// map the message to the kind of message 
+/// map the message to the kind of message
 /// your child control needs to handle
 Cmd.map AboutMsg cmd
 </code></pre>
@@ -251,7 +251,7 @@ Cmd.map AboutMsg cmd
 <pre><code class="language-fsharp">let view (state: State) (dispatch) =
    /// ... more omitted code
    TabItem.content (Counter.view state.counterState (CounterMsg &gt;&gt; dispatch))
-   TabItem.content (About.view state.aboutState (AboutMsg &gt;&gt; dispatch)) 
+   TabItem.content (About.view state.aboutState (AboutMsg &gt;&gt; dispatch))
    /// ... mode omitted code
 </code></pre>
 <p>Here we use the view function from the Counter and the About modules.</p>
@@ -284,6 +284,10 @@ you are able to include other resources from other libraries if they expose them
 
           </section>
         </article>
+        <a class="edit-page" href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI.Docs/blob/master/src/guides/Full-Template.md">
+          <i class="fa fa-pencil-square-o"></i>
+           Edit this page
+        </a>
       </div>
     </main>
     <footer class="main-footer footer">

@@ -177,7 +177,7 @@
 <p><strong>Set Dynamic State Checkbox</strong></p>
 <p>You can mix and match the three states of a checkbox. In this example
 if the count value is greater than 0 the box will be checked, if the value is 0 then it will be indeterminate lastly if the value is less than 0 it will be unchecked</p>
-<pre><code class="language-fsharp">let isChecked = 
+<pre><code class="language-fsharp">let isChecked =
     if state.count = 0 then
         None
     else if state.count &gt; 0 then
@@ -188,7 +188,7 @@ if the count value is greater than 0 the box will be checked, if the value is 0 
 CheckBox.create [
     CheckBox.content &quot;Dynamic CheckBox&quot;
     // this is not required
-    Checkbox.isEnabled false 
+    Checkbox.isEnabled false
     CheckBox.isThreeState (state.count = 0)
     CheckBox.isChecked isChecked
 ]
@@ -196,6 +196,10 @@ CheckBox.create [
 
           </section>
         </article>
+        <a class="edit-page" href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI.Docs/blob/master/src/controls/CheckBox.md">
+          <i class="fa fa-pencil-square-o"></i>
+           Edit this page
+        </a>
       </div>
     </main>
     <footer class="main-footer footer">

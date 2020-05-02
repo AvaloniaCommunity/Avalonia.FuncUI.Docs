@@ -155,11 +155,11 @@
 Avalonia.FuncUI has some overloads for you to take advantage on</p>
 <pre><code class="language-fsharp">Border.create [
 	Border.background &quot;black&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 Border.create [
 	Border.background &quot;#000000&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <blockquote>
@@ -169,12 +169,12 @@ Border.create [
 Avalonia.FuncUI has some overloads for you to take advantage on</p>
 <pre><code class="language-fsharp">Border.create [
 	Border.borderBrush &quot;red&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <pre><code class="language-fsharp">Border.create [
 	Border.borderBrush &quot;#FF0000&quot;
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <blockquote>
@@ -183,19 +183,19 @@ Avalonia.FuncUI has some overloads for you to take advantage on</p>
 <p><strong>Thickness</strong></p>
 <pre><code class="language-fsharp">Border.create [
 	Border.borderThickness 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <p><strong>Horizontal and Vertical Thickness</strong></p>
 <pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.borderThickness (2.0, 5.0)
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <p><strong>Left, Top, Right, Bottom Thickness</strong></p>
 <pre><code class="language-fsharp">Border.create [
-	Border.borderThickness 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.borderThickness (1.0, 2.0, 3.0, 4.0)
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <blockquote>
@@ -204,19 +204,19 @@ Avalonia.FuncUI has some overloads for you to take advantage on</p>
 <p><strong>Corner Radius</strong></p>
 <pre><code class="language-fsharp">Border.create [
 	Border.borderCorner Radius 2.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <p><strong>Horizontal and Vertical Corner Radius</strong></p>
 <pre><code class="language-fsharp">Border.create [
 	Border.borderCorner Radius 2.0 5.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <p><strong>Left, Top, Right, Bottom Corner Radius</strong></p>
 <pre><code class="language-fsharp">Border.create [
 	Border.borderCorner Radius 1.0 2.0 3.0 4.0
-	Border.child [ StackPanel.create [ /* ... definition ... */ ] ]
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 </code></pre>
 <blockquote>
@@ -225,6 +225,10 @@ Avalonia.FuncUI has some overloads for you to take advantage on</p>
 
           </section>
         </article>
+        <a class="edit-page" href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI.Docs/blob/master/src/controls/Border.md">
+          <i class="fa fa-pencil-square-o"></i>
+           Edit this page
+        </a>
       </div>
     </main>
     <footer class="main-footer footer">

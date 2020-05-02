@@ -162,7 +162,7 @@
         base.Title &lt;- &quot;Basic&quot;
         base.Width &lt;- 400.0
         base.Height &lt;- 400.0
-        
+
         //this.VisualRoot.VisualRoot.Renderer.DrawFps &lt;- true
         //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects &lt;- true
 
@@ -213,7 +213,7 @@ module Counter =
         | Increment -&gt; { state with count = state.count + 1 }
         | Decrement -&gt; { state with count = state.count - 1 }
         | Reset -&gt; init
-    
+
     let view (state: State) (dispatch) =
         DockPanel.create [
             DockPanel.children [
@@ -221,7 +221,7 @@ module Counter =
                     Button.dock Dock.Bottom
                     Button.onClick (fun _ -&gt; dispatch Reset)
                     Button.content &quot;reset&quot;
-                ]                
+                ]
                 Button.create [
                     Button.dock Dock.Bottom
                     Button.onClick (fun _ -&gt; dispatch Decrement)
@@ -279,7 +279,7 @@ module Counter =
         DockPanel.children [
             Button.create [
                 Button.onClick (fun _ -&gt; dispatch Reset)
-            ]                
+            ]
             Button.create [
                 Button.onClick (fun _ -&gt; dispatch Decrement)
             ]
@@ -290,13 +290,17 @@ module Counter =
                 TextBlock.text (string state.count)
             ]
         ]
-    ]       
+    ]
 </code></pre>
 <p>The view has two parameters: <code>state</code> which is the current state (model) of your module as well as a <code>dispatch</code> function, this dispatch function takes a <code>Msg</code> (It can be any of our Msg types: <code>Increment</code>, <code>Decrement</code>, <code>Reset</code>) and doesn't have a special return type (unit) <code>Elmish</code> and <code>Avalonia.FuncUI</code> glue the dispatch function.
 to use the information that is stored in the state, we simply use <code>state.{property}</code> in this case, we have a text block (label) that renders out the current count on the screen.</p>
 
           </section>
         </article>
+        <a class="edit-page" href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI.Docs/blob/master/src/guides/Basic-Template.md">
+          <i class="fa fa-pencil-square-o"></i>
+           Edit this page
+        </a>
       </div>
     </main>
     <footer class="main-footer footer">

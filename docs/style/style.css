@@ -13,7 +13,7 @@ html, body {
 
 .about {
   display: grid;
-  grid-template: 
+  grid-template:
     'aboutheader aboutheader' auto
     'left right' auto / 1fr 1fr;
   gap: 1em;
@@ -38,7 +38,7 @@ html, body {
   .about {
     grid-template:
       'aboutheader' auto
-      'left' auto 
+      'left' auto
       'right' / auto;
   }
 }
@@ -70,6 +70,13 @@ html, body {
 
 .page-content {
   grid-area: content;
+  position: relative;
+}
+
+.edit-page {
+  position: absolute;
+  right: 20px;
+  top: 10px;
 }
 
 .brand-link {
