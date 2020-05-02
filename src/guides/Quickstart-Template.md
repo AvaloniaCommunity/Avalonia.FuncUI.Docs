@@ -40,7 +40,7 @@ We offer three main projects
 - ProjectName.Core
 - ProjectName.Core.Tests
 
-`ProjectName` is where your Avalonia.FuncUI code resides, it is your application. 
+`ProjectName` is where your Avalonia.FuncUI code resides, it is your application.
 
 `ProjectName.Core` is where you may have Shared logic that can be reused between different kinds of solutions like `Web` or `Console` in case you decide to add these solutions for your project (having a Shared/Core is not required).
 
@@ -105,10 +105,10 @@ type Host() as this =
 ## UserProfiles.fs
 The `UserProfiles` page exposes a `HostControl` similarly to the `TreeViewPage`. It also shows you some ways on how to work with internet resources like a Restful API
 
-What is different from other modules? 
+What is different from other modules?
 - The usage of `Cmd.ofAsync`
 
-our init function is defined as 
+our init function is defined as
 ```fsharp
 /// sample function to load the initial data
 let loadInit() =
@@ -167,5 +167,3 @@ test "Hello, World!" {
 }
 ```
 If you wonder how to test your application using Expecto you can find that [here](guides/Unit-Testing-Avalonia-FuncUI-Apps.html)
-
-

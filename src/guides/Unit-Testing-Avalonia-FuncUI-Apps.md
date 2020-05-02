@@ -57,7 +57,7 @@ module Counter =
     open Avalonia.Controls
     open Avalonia.FuncUI.DSL
     open Avalonia.Layout
-    
+
     type State = { count : int }
     let init = { count = 0 }
 
@@ -68,7 +68,7 @@ module Counter =
         | Increment -> { state with count = state.count + 1 }
         | Decrement -> { state with count = state.count - 1 }
         | Reset -> init
-    
+
     let view (state: State) (dispatch) =
         DockPanel.create [
             DockPanel.children [
@@ -90,7 +90,7 @@ module Counter =
                         Button.create [
                             Button.onClick (fun _ -> dispatch Reset)
                             Button.content "reset"
-                        ]                         
+                        ]
                     ]
                 ]
 
@@ -134,7 +134,7 @@ A total of 1 test files matched the specified pattern.
 
   X Counter Tests/Increment should increment counter by 1 [65ms]
   Error Message:
-   
+
 Expected count to be 2.
 expected: 2
   actual: 3

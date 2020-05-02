@@ -15,12 +15,12 @@ The basic template contains three files
 - Counter.fs
 - Program.fs
 
-this is the simplest way to get started with `Avalonia.FuncUI` it's a straight "counter" sample 
+this is the simplest way to get started with `Avalonia.FuncUI` it's a straight "counter" sample
 
 ## Program.fs
 Inside `Program.fs` two main classes allow you to start your Avalonia application
 
-The first one you'll see it's 
+The first one you'll see it's
 ```fsharp
 type MainWindow() as this =
     inherit HostWindow()
@@ -28,7 +28,7 @@ type MainWindow() as this =
         base.Title <- "Basic"
         base.Width <- 400.0
         base.Height <- 400.0
-        
+
         //this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
         //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
 
@@ -88,7 +88,7 @@ module Counter =
         | Increment -> { state with count = state.count + 1 }
         | Decrement -> { state with count = state.count - 1 }
         | Reset -> init
-    
+
     let view (state: State) (dispatch) =
         DockPanel.create [
             DockPanel.children [
@@ -96,7 +96,7 @@ module Counter =
                     Button.dock Dock.Bottom
                     Button.onClick (fun _ -> dispatch Reset)
                     Button.content "reset"
-                ]                
+                ]
                 Button.create [
                     Button.dock Dock.Bottom
                     Button.onClick (fun _ -> dispatch Decrement)
@@ -164,7 +164,7 @@ let view (state: State) (dispatch: Msg -> unit) =
         DockPanel.children [
             Button.create [
                 Button.onClick (fun _ -> dispatch Reset)
-            ]                
+            ]
             Button.create [
                 Button.onClick (fun _ -> dispatch Decrement)
             ]
@@ -175,7 +175,7 @@ let view (state: State) (dispatch: Msg -> unit) =
                 TextBlock.text (string state.count)
             ]
         ]
-    ]       
+    ]
 ```
 The view has two parameters: `state` which is the current state (model) of your module as well as a `dispatch` function, this dispatch function takes a `Msg` (It can be any of our Msg types: `Increment`, `Decrement`, `Reset`) and doesn't have a special return type (unit) `Elmish` and `Avalonia.FuncUI` glue the dispatch function.
 to use the information that is stored in the state, we simply use `state.{property}` in this case, we have a text block (label) that renders out the current count on the screen.

@@ -40,7 +40,7 @@ type App() =
 
 then just create a new NativeMenu
 ```fsharp
-type MainWindow() as this = 
+type MainWindow() as this =
     inherit HostWindow()
     do
         base.Title <- "Counter Example"
@@ -50,16 +50,16 @@ type MainWindow() as this =
         // 🚩create menu and menu items
         let incrementItem = NativeMenuItem "Increment"
         let decrementItem = NativeMenuItem "Decrement"
-        
+
         let editCounterItem = NativeMenuItem "Edit Counter"
         let editCounterMenu =  NativeMenu()
         editCounterItem.Menu <- editCounterMenu
         editCounterMenu.Add incrementItem
         editCounterMenu.Add decrementItem
-        
+
         let nativeMenu = NativeMenu()
         nativeMenu.Add editCounterItem
-        
+
         // 🚩set menu
         NativeMenu.SetMenu(this, nativeMenu)
 

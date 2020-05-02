@@ -14,7 +14,7 @@ group: controls
 >
 > For Avalonia.FuncUI's DSL properties you can check [Border.fs]
 
-The Border controll allows you to decorate child controls 
+The Border controll allows you to decorate child controls
 
 ## Usage
 

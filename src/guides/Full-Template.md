@@ -27,11 +27,11 @@ The "About" file is a pretty simple one, it contains links to useful resources, 
 ```fsharp
 let update (msg: Msg) (state: State) =
     match msg with
-    | OpenUrl link -> 
-        let url = 
-            match link with 
+    | OpenUrl link ->
+        let url =
+            match link with
             | FuncUIGitter -> "https://gitter.im/Avalonia-FuncUI"
-                
+
         if RuntimeInformation.IsOSPlatform(OSPlatform.Windows) then
             let start = sprintf "/c start %s" url
             Process.Start(ProcessStartInfo("cmd", start)) |> ignore
@@ -72,7 +72,7 @@ let update (msg: Msg) (state: State): State * Cmd<_> =
         let aboutState, cmd =
             About.update bpmsg state.aboutState
         { state with aboutState = aboutState },
-        /// map the message to the kind of message 
+        /// map the message to the kind of message
         /// your child control needs to handle
         Cmd.map AboutMsg cmd
     /// ... omitted code
@@ -80,13 +80,13 @@ let update (msg: Msg) (state: State): State * Cmd<_> =
 let view (state: State) (dispatch) =
    /// ... more omitted code
    TabItem.content (Counter.view state.counterState (CounterMsg >> dispatch))
-   TabItem.content (About.view state.aboutState (AboutMsg >> dispatch)) 
+   TabItem.content (About.view state.aboutState (AboutMsg >> dispatch))
    /// ... mode omitted code
 ```
 
 The main take away from this is that most Elmish modules are structured in the same way and contain the same public functions, therefore you can use Elmish modules inside other modules themselves (`Shell.fs` is a Elmish module that includes other two Elmish modules).
 
-The state contains the children's state definitions 
+The state contains the children's state definitions
 - `aboutState: About.State;`
 - `counterState: Counter.State;`
 
@@ -115,7 +115,7 @@ In the update function we also make a similar change
 let aboutState, cmd =
     About.update bpmsg state.aboutState
 { state with aboutState = aboutState },
-/// map the message to the kind of message 
+/// map the message to the kind of message
 /// your child control needs to handle
 Cmd.map AboutMsg cmd
 ```
@@ -126,12 +126,12 @@ For the view function we use some composition (>>) to indicate what is the corre
 let view (state: State) (dispatch) =
    /// ... more omitted code
    TabItem.content (Counter.view state.counterState (CounterMsg >> dispatch))
-   TabItem.content (About.view state.aboutState (AboutMsg >> dispatch)) 
+   TabItem.content (About.view state.aboutState (AboutMsg >> dispatch))
    /// ... mode omitted code
 ```
 Here we use the view function from the Counter and the About modules.
 
-Finally the `MainWindow`. You may ask yourself 
+Finally the `MainWindow`. You may ask yourself
 > Why would I need to have the window defined in the same module as my view?
 
 The reason is that you are able to show an Elmish module inside its own window (yes you can have multiple windows) this only shows you that you don't necessarily need to define the MainWindow inside the `Program.fs` file. There's also another significant change

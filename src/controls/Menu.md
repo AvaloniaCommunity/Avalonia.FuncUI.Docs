@@ -11,7 +11,7 @@ group: controls
 [this file]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Extensions.fs#L5
 
 > *Note*: You can check the Avalonia docs for the [Menu API] and [Menu] if you need more information.
-> 
+>
 > For Avalonia.FuncUI's DSL properties you can check [Menu.fs]
 
 The menu control allows you to add a list of buttons in a horizontal manner which supports sub-items, it's usually put at the top of the application inside a DockPanel, but it can be placed anywhere in the application.
