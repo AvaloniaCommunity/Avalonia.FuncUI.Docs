@@ -27,7 +27,7 @@ let generate' (ctx : SiteContents) (_: string) =
             ]
     ]
 
-  Layout.layout ctx "About" [
+  Layout.layout ctx "About" None [
     section [Class "about"] [
         header [Class "about-header"] [
             h1 [Class "title"] [ !!"About Avalonia.FuncUI" ]

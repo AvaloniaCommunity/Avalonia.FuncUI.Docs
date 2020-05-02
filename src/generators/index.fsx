@@ -16,7 +16,7 @@ let markdownPipeline =
         .Build()
 
 let generate' (ctx : SiteContents) (page: string) =
-  Layout.layout ctx "Home" [
+  Layout.layout ctx "Home" None [
     section [Class "index-content content"] [!!page]
   ]
 

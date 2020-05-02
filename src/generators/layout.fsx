@@ -33,9 +33,12 @@ let injectWebsocketCode (webpage:string) =
     let index = webpage.IndexOf head
     webpage.Insert ( (index + head.Length + 1),websocketScript)
 
-let layout (ctx : SiteContents) active bodyCnt =
-    let pages =
-        ctx.TryGetValues<Pageloader.Page> ()
+let layout (ctx : SiteContents) active file bodyCnt =
+    // Create pageLink from relative
+    let pageLink = Option.map ((+) "https://github.com/AvaloniaCommunity/Avalonia.FuncUI.Docs/blob/master/src/") file
+
+    let pages = 
+        ctx.TryGetValues<Pageloader.Page> () 
         |> Option.defaultValue Seq.empty
 
     let releaseNotes =
@@ -157,7 +160,13 @@ let layout (ctx : SiteContents) active bodyCnt =
             main [Class "main-content"] [
                 if showSidebar then
                     aside [Class "menu main-menu"] menuContent
-                div [Class "page-content"] [yield! bodyCnt]
+                div [Class "page-content"] [
+                    yield! bodyCnt
+                    match pageLink with
+                    | Some pageLink ->
+                        a [Class "edit-page"; Href pageLink] [i [Class "fa fa-pencil-square-o"] []; !! " Edit this page"]
+                    | None -> ()
+                ]
             ]
             footer [Class "main-footer footer"] [
                     aside [Class "menu"] menuContent

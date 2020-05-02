@@ -11,7 +11,7 @@ let generate' (ctx : SiteContents) (_: string) =
         |> Option.defaultValue Seq.empty<Releasenotesloader.ReleaseNote>
         |> Seq.sortByDescending(fun p -> p.published)
 
-    Layout.layout ctx "Release Notes" [
+    Layout.layout ctx "Release Notes" None [
         article [Class "release-notes"] [
             header [Class "release-notes-header"] [
                 h1 [Class "title"] [

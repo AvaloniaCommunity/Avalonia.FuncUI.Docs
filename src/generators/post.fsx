@@ -10,7 +10,7 @@ let generate' (ctx : SiteContents) (page: string) =
         |> Option.defaultValue Seq.empty
         |> Seq.find (fun n -> n.file = page)
 
-    Layout.layout ctx post.title [
+    Layout.layout ctx post.title (Some post.file) [
         article [Class "post box"] [
             header [Class "post-header"] [
                 h1 [Class "title"] [!!post.title]

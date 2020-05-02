@@ -10,7 +10,7 @@ let generate' (ctx : SiteContents) (page: string) =
         |> Option.defaultValue Seq.empty
         |> Seq.find(fun n -> n.file = page)
 
-    Layout.layout ctx releaseNote.title [
+    Layout.layout ctx releaseNote.title (Some releaseNote.file) [
         article [Class "release-note box"] [
             header [Class "release-note-header"] [
                 h1 [Class "title"] [!!releaseNote.title]

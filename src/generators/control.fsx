@@ -9,7 +9,8 @@ let generate' (ctx: SiteContents) (page: string) =
         |> Option.defaultValue Seq.empty
         |> Seq.find (fun n -> n.file = page)
 
-    Layout.layout ctx control.name [
+    
+    Layout.layout ctx control.name (Some control.file) [
         article [Class "control box"] [
             header [Class "control-header"] [
                 h1 [Class "title"] [!!control.name]
