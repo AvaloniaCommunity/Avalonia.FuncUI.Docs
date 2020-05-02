@@ -16,7 +16,7 @@ let generate' (ctx : SiteContents) (_: string) =
         |> Seq.sortBy(fun g -> g.listOrder)
         |> Seq.groupBy(fun g -> g.guideCategory)
 
-    Layout.layout ctx "Guides" [
+    Layout.layout ctx "Guides" None [
         article [Class "guides box"] [
             header [Class "guides-header"] [
                 h1 [Class "title"] [

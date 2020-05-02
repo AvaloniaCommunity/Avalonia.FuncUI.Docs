@@ -70,6 +70,13 @@ html, body {
 
 .page-content {
   grid-area: content;
+  position: relative;
+}
+
+.edit-page {
+  position: absolute;
+  right: 20px;
+  top: 10px;
 }
 
 .brand-link {

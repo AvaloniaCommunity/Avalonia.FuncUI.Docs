@@ -9,7 +9,7 @@ let generate' (ctx: SiteContents) (page: string) =
         |> Option.defaultValue Seq.empty
         |> Seq.find (fun n -> n.file = page)
     
-    Layout.layout ctx guide.title [
+    Layout.layout ctx guide.title (Some guide.file) [
         article [Class "guide box"] [
             header [Class "guide-header"] [
                 h1 [Class "title"] [!!guide.title]
