@@ -34,26 +34,26 @@ let injectWebsocketCode (webpage:string) =
     webpage.Insert ( (index + head.Length + 1),websocketScript)
 
 let layout (ctx : SiteContents) active bodyCnt =
-    let pages = 
-        ctx.TryGetValues<Pageloader.Page> () 
+    let pages =
+        ctx.TryGetValues<Pageloader.Page> ()
         |> Option.defaultValue Seq.empty
 
-    let releaseNotes = 
-        ctx.TryGetValues<Releasenotesloader.ReleaseNote> () 
+    let releaseNotes =
+        ctx.TryGetValues<Releasenotesloader.ReleaseNote> ()
         |> Option.defaultValue Seq.empty
 
-    let controls = 
-        ctx.TryGetValues<Controlloader.Control> () 
+    let controls =
+        ctx.TryGetValues<Controlloader.Control> ()
         |> Option.defaultValue Seq.empty
         |> Seq.sortBy(fun c -> c.name)
         |> Seq.groupBy(fun c -> c.group)
 
-    let guides = 
-        ctx.TryGetValues<Guideloader.Guide> () 
+    let guides =
+        ctx.TryGetValues<Guideloader.Guide> ()
         |> Option.defaultValue Seq.empty<Guideloader.Guide>
         |> Seq.sortBy(fun g -> g.listOrder)
 
-    let siteInfo = 
+    let siteInfo =
         ctx.TryGetValue<Globalloader.SiteInfo> ()
 
     let ttl =
@@ -61,12 +61,12 @@ let layout (ctx : SiteContents) active bodyCnt =
       |> Option.map (fun si -> si.title)
       |> Option.defaultValue ""
 
-    let baseurl = 
+    let baseurl =
         siteInfo
         |> Option.map (fun si -> si.baseUrl)
         |> Option.defaultValue "/"
 
-    let showSidebar = 
+    let showSidebar =
         siteInfo
         |> Option.map (fun si -> si.showSideBar)
         |> Option.defaultValue true
@@ -78,10 +78,10 @@ let layout (ctx : SiteContents) active bodyCnt =
         a [Class cls; Href p.link] [!! p.title ])
       |> Seq.toList
 
-    let groupMenu (name: string) (controls: Controlloader.Control seq) = 
+    let groupMenu (name: string) (controls: Controlloader.Control seq) =
         [ a [] [!!name]
           ul [] [
-              for control in controls do 
+              for control in controls do
                   li [] [
                       a [Href control.link] [!!control.name]
                   ]
@@ -105,9 +105,9 @@ let layout (ctx : SiteContents) active bodyCnt =
                 !!"Documentation"
             ]
             ul [Class "menu-list"] [
-                for (group, controls) in controls do 
+                for (group, controls) in controls do
                     li [] [
-                        match group with 
+                        match group with
                         | None -> yield! groupMenu "" controls
                         | Some group -> yield! groupMenu (group.ToString()) controls
                     ]

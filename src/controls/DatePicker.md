@@ -9,7 +9,7 @@ group: controls
 [DatePickerFormat]: http://avaloniaui.net/api/Avalonia.Controls/DatePickerFormat/
 
 > *Note*: You can check the Avalonia docs for the [DatePicker API] if you need more information.
-> 
+>
 > For Avalonia.FuncUI's DSL properties you can check [DatePicker.fs]
 
 The DatePicker control is a single date picker that displays a calendar, it is also posible to enter a date via the TextBox the control has

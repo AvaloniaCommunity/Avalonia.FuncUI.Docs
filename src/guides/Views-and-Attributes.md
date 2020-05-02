@@ -29,7 +29,7 @@ let view (state: CounterState) (dispatch): View =
                 TextBlock.text (string state.count)
             ]
         ]
-    ]   
+    ]
 ```
 
 <img width="200" src="https://raw.githubusercontent.com/AvaloniaCommunity/Avalonia.FuncUI/master/github/img/counter_screenshot.png"/>
@@ -110,7 +110,7 @@ Here are some examples.
 ``` fsharp
 // single view content
 Button.create [
-    // takes 'View' 
+    // takes 'View'
     Button.content (
         TextBlock.create [
             TextBlock.text "some text"
@@ -120,7 +120,7 @@ Button.create [
 
 // content view list
 StackPanel.create [
-    // takes 'View list' 
+    // takes 'View list'
     StackPanel.children [
         TextBox.create [
             TextBox.text "one"
@@ -130,7 +130,6 @@ StackPanel.create [
         ]
         ...
     ]
-]   
+]
 
 ```
-

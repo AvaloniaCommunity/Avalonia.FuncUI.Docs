@@ -11,7 +11,7 @@ group: controls
 [HostControl]: controls/HostControl.html
 
 > *Note*: You can check the Avalonia docs for the [TabControl API] and [TabControl] if you need more information.
-> 
+>
 > For Avalonia.FuncUI's DSL properties you can check [TabControl.fs]
 
 The [TabControl] offers you a way to present content inside your application, each tab contains a different set of controls.
@@ -47,7 +47,7 @@ visit the [example] to see it in action
 
 ```fsharp
 // counter.fs
-module Counter = 
+module Counter =
     type State = (* state definition *)
     type Msg = (* message definition *)
     let init = (* init definition *)

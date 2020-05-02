@@ -48,12 +48,12 @@ Button.create [ Button.content "My Button" ]
 ```
 Buttons can have arbitrary content, for example it can be a string as the example above. It also can be another entire control like a StackPanel
 ```fsharp
-let playIcon = 
+let playIcon =
 	Canvas.create [ ... ]
-let textbox = 
+let textbox =
 	TextBox.create [ ... ]
 
-let iconAndTextBlock = 
+let iconAndTextBlock =
 	StackPanel.create [
 		StackPanel.orientation Horizontal
 		StackPanel.spacing 8.0

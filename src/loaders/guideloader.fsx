@@ -20,7 +20,7 @@ type GuideCategory =
         | "intermediate" -> Intermediate
         | "advanced" -> Advanced
         | _ -> Uncategorized
-    
+
     member this.ToString() =
         match this with
         | Beginner      -> "Beginner"
@@ -87,12 +87,12 @@ let loadFile n =
 
     let title = config |> List.find (fun n -> n.ToLower().StartsWith "title" ) |> fun n -> n.Split(':').[1] |> trimString
     let listOrder = config |> List.find(fun n -> n.ToLower().StartsWith "list-order") |> fun n -> n.Split(':').[1] |> trimString |> int
-    let category = 
-        config 
-        |> List.find (fun n -> n.ToLower().StartsWith "guide-category") 
-        |> fun n -> n.Split(':').[1] 
-        |> trimString 
-        |> fun n -> n.ToLower() 
+    let category =
+        config
+        |> List.find (fun n -> n.ToLower().StartsWith "guide-category")
+        |> fun n -> n.Split(':').[1]
+        |> trimString
+        |> fun n -> n.ToLower()
         |> GuideCategory.FromString
 
     let author =
