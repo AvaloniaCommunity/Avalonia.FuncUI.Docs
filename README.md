@@ -75,7 +75,7 @@ In the same way you have to put Links at the top and use relative URLs when link
 ### Preview while Developing
 Fornax offers a watch command that allows you to preview the website as you develop it's contents
 
-- install the fornax-cli tool
+- restore dotnet tools
 - change directory into the docs sources
 - fornax watch
 - open your browser on localhost:8080 (for further information visit the [Fornax] repository)
@@ -85,30 +85,23 @@ Fornax offers a watch command that allows you to preview the website as you deve
 > to prevent issues with links locally please change the follwing line `baseUrl = "/Avalonia.FuncUI/"` to `baseUrl = "/"` while in development in `loaders/globalloader.fsx`
 
 ```
-dotnet tool install fornax -g
+dotnet tool restore
 cd src
-fornax watch
+dotnet fornax watch
 ```
-
 
 ### Build Docs
-To update the website, we have to build the docs sources, we use a fake script for this
-
-> Pleas note that if you are only adding/updating content (example: adding a .md file) you don't need to include the updated docs in your pull request, if you added a different layout, or modified an existing page (example: generators/index.fsx) please notify in the pull request so it can also be verified by the maintainers
-
-- install fornax cli tool
-- change directory into the docs sources
-- ./fake run build.fsx -t CopyDocs
-- Docs have been put into the docs directory in the root of the repository
+- restore dotnet tools
+- run fake build
+- Docs have been put into `src/_public` directory
 
 ```
-dotnet tool install fornax -g
-cd src
-./fake run build.fsx -t CopyDocs
+dotnet tool restore
+dotnet fake run build
 ```
-now you can push or PR the built website, after a few minutes of the PR (or change) being merged into master the website will reflect these changes
 
+If you make a PR and it is merged into master, GitHub Actions will automatically deploy the changes to the website.
 
 # ***Note***
-`.markdown` files
+`.markdown` files  
 To prevent the [Fornax] engine from auto-processing files we use the `.markdown` file extension for files that we want to load individually on certain pages (like `index.`markdown inside the `index.fsx` file)
