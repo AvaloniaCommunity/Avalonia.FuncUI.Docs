@@ -80,7 +80,7 @@ Border.create [
 **Corner Radius**
 ```fsharp
 Border.create [
-	Border.borderCorner Radius 2.0
+	Border.cornerRadius 3.0
 	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
@@ -88,7 +88,7 @@ Border.create [
 **Horizontal and Vertical Corner Radius**
 ```fsharp
 Border.create [
-	Border.borderCorner Radius 2.0 5.0
+	Border.cornerRadius (2.0, 5.0)
 	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
@@ -96,8 +96,15 @@ Border.create [
 **Left, Top, Right, Bottom Corner Radius**
 ```fsharp
 Border.create [
-	Border.borderCorner Radius 1.0 2.0 3.0 4.0
+	Border.cornerRadius (1.0, 2.0, 3.0, 4.0)
 	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
 > You can also pass a [Corner Radius] struct to the cornerRadius property
+
+```fsharp
+Border.create [
+	Border.cornerRadius (CornerRadius 3.0)
+	Border.child (StackPanel.create [ /* ... definition ... */ ])
+]
+```
