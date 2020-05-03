@@ -1,0 +1,24 @@
+name: Release docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Restore tools
+      run: dotnet tool restore
+    - name: Run Fornax
+      run: dotnet fake build
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./src/_public
+        publish_branch: gh-pages
+        force_orphan: true
