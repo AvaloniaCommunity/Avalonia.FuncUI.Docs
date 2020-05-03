@@ -6,19 +6,24 @@ nuget Fake.Core.Target //"
 #load ".fake/build.fsx/intellisense.fsx"
 
 open Fake.Core
+open Fake.DotNet
 open Fake.IO
 open Fake.Core.TargetOperators
 
+let setWorkingDir (options: DotNet.Options) =
+    { options with
+        WorkingDirectory = "./src" }
+
 Target.initEnvironment ()
-let docsOutputPath = Path.getFullName "../docs"
+let docsOutputPath = Path.getFullName "./docs"
 
 Target.create "Clean" (fun _ ->
-    let exitCode = Shell.Exec("fornax", "clean")
-    Trace.tracefn "Build ExitCode: %i" exitCode)
+    let processResult = DotNet.exec setWorkingDir "fornax" "clean"
+    Trace.tracefn "Build ExitCode: %i" processResult.ExitCode)
 
 Target.create "Build" (fun _ ->
-    let exitCode = Shell.Exec("fornax", "build")
-    Trace.tracefn "Build ExitCode: %i" exitCode)
+    let processResult = DotNet.exec setWorkingDir "fornax" "build"
+    Trace.tracefn "Build ExitCode: %i" processResult.ExitCode)
 
 Target.create "CleanDocs" (fun _ ->
     printfn "%s" docsOutputPath
@@ -27,7 +32,7 @@ Target.create "CleanDocs" (fun _ ->
 Target.create "CopyDocs" (fun _ ->
     Trace.tracefn "Creating Output Directory: %s" docsOutputPath
     Shell.mkdir docsOutputPath
-    let src = Path.getFullName "./_public"
+    let src = Path.getFullName "./src/_public"
 
     let copied =
         match Path.isDirectory src with
