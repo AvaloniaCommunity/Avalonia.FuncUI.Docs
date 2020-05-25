@@ -41,9 +41,9 @@ Support for all Avalonia Controls is built-in. You can use them like this:
 
 ```fsharp
 Button.create [ Button.content ""; Button.onClick(fun args -> printf "%A" args) ]
-TextBox.create [ Textbox.watermark "I'm a placeholder"; Textbox.text state.textboxValue ]
-Border.Create [ attributes ]
-TabControl.Create [ attributes ]
+TextBox.create [ TextBox.watermark "I'm a placeholder"; TextBox.text state.textboxValue ]
+Border.create [ attributes ]
+TabControl.create [ attributes ]
 ...
 ```
 
@@ -86,10 +86,10 @@ Button.create [
 Events are just like other attributes. You can easily recognize them by their prefix. Events are named like this
 > **{ControlName}**.on**{EventName}**
 ```fsharp
-TextBox.onClick (fun sender args -> // do something )
-TextBox.onKeyDown (fun sender args -> // do something )
-TextBox.onKeyUp (fun sender args -> // do something )
-TextBox.onSelectionChanged (fun sender args -> // do something )
+Button.onClick (fun args -> // do something )
+TextBox.onKeyDown (fun args -> // do something )
+TextBox.onKeyUp (fun args -> // do something )
+ListBox.onSelectionChanged (fun args -> // do something )
 ...
 ```
 ## 🧲 Attached Properties
@@ -98,7 +98,7 @@ Attached Attributes are used like Events and normal Properties.
 ```fsharp
 StackPanel.dock Dock.Top
 StackPanel.row 1
-StackPanel.colum 1
+StackPanel.column 1
 ...
 ```
 > ⚠ Currently not all attached properties are supported / declared. This is currently in process, feel free to create an issue if something is missing
