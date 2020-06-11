@@ -1,0 +1,10 @@
+
+{
+    "recordFieldNames": {
+        "enabled": true,
+        "config": {
+            "naming": "CamelCase",
+            "underscores": "None"
+        }
+    }
+}
