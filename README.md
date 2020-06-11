@@ -82,8 +82,6 @@ Fornax offers a watch command that allows you to preview the website as you deve
 
 > If you want to live reload your changes (instead of an F5 on each change) you can select set to false the `siteContent.Add({ disableLiveRefresh = true })` setting inside `loaders/guideloader.fsx` and `loaders/postloader.fsx`
 
-> to prevent issues with links locally please change the follwing line `baseUrl = "/Avalonia.FuncUI/"` to `baseUrl = "/"` while in development in `loaders/globalloader.fsx`
-
 ```
 dotnet tool restore
 cd src
