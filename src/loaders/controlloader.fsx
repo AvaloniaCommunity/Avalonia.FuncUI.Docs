@@ -20,7 +20,7 @@ type ControlGroup =
         | "primitives" -> Primitives
         | _ -> Uncategorized
 
-    member this.ToString() =
+    override this.ToString() =
         match this with
         | Controls      -> "Controls"
         | Primitives  -> "Primitives"

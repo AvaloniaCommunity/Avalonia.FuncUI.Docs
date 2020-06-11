@@ -21,7 +21,7 @@ type GuideCategory =
         | "advanced" -> Advanced
         | _ -> Uncategorized
 
-    member this.ToString() =
+    override this.ToString() =
         match this with
         | Beginner      -> "Beginner"
         | Intermediate  -> "Intermediate"
