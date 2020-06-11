@@ -3,4 +3,9 @@ src/_public/*
 *.DS_Store
 .fake
 .ionide
-.vscode
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
