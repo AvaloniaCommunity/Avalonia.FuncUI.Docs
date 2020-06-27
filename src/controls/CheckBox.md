@@ -18,7 +18,7 @@ The checkbox is a control that allows a user to represent boolean values or the 
 **Set Label**
 ```fsharp
 CheckBox.create [
-    Checkbox.content "I Accept the terms and conditions."
+    CheckBox.content "I Accept the terms and conditions."
 ]
 ```
 
@@ -27,7 +27,7 @@ CheckBox.create [
 ```fsharp
 CheckBox.create [
     // can be either true or false
-    Checkbox.isChecked state.booleanValue
+    CheckBox.isChecked state.booleanValue
 ]
 ```
 
@@ -38,7 +38,7 @@ CheckBox.create [
     CheckBox.isThreeState state.indeterminate
     // this value is required to be either a nullable boolean
     // or a boolean option
-    Checkbox.isChecked None
+    CheckBox.isChecked None
 ]
 ```
 > To be able to set the indeterminate state, the `isThreeState` value must be true and the `isChecked` value must be None or Nullable boolean set to null
@@ -59,7 +59,7 @@ let isChecked =
 CheckBox.create [
     CheckBox.content "Dynamic CheckBox"
     // this is not required
-    Checkbox.isEnabled false
+    CheckBox.isEnabled false
     CheckBox.isThreeState (state.count = 0)
     CheckBox.isChecked isChecked
 ]
