@@ -20,10 +20,20 @@ The [TabControl] offers you a way to present content inside your application, ea
 
 **Set Tabs**
 ```fsharp
-let homePageContent = DockPanel.create [ TextBox.create [ TextBox.text "Home" ] ]
-let aboutPageContent = DockPanel.create [ TextBox.create [ TextBox.text "About" ] ]
+let homePageContent = 
+    DockPanel.create [ 
+        DockPanel.children [
+            TextBox.create [ TextBox.text "Home" ]
+        ]
+    ]
+let aboutPageContent = 
+    DockPanel.create [ 
+        DockPanel.children [
+            TextBox.create [ TextBox.text "About" ]
+        ]
+    ]
 
-let tabs = [
+let tabs : IView list = [
     TabItem.create [
         TabItem.header "Home"
         TabItem.content homePageContent
@@ -63,9 +73,13 @@ module Counter =
             |> Program.run
 
 // Program.fs
-```fsharp
-let aboutPageContent = DockPanel.create [ TextBox.create [ TextBox.text "About" ] ]
-let tabs = [
+let aboutPageContent = 
+    DockPanel.create [ 
+        DockPanel.children [
+            TextBox.create [ TextBox.text "About" ]
+        ]
+    ]
+let tabs : IView list = [
     TabItem.create [
         TabItem.header "Counter"
         // use the ViewBuilder to be able to use the Counter module in a stand alone
@@ -81,4 +95,4 @@ TabControl.create [
     TabControl.viewItems tabs
 ]
 ```
-In the example above the `Counter` module defines a [HostControl] to allow that module to work by itself this means you don't need to nest every view/control inside the main Elmish module of your app this can help you to reduce boilerplate and to reduce complexity in the main module of your application
+In the example above the `Counter` module defines a `HostControl` to allow that module to work by itself this means you don't need to nest every view/control inside the main Elmish module of your app this can help you to reduce boilerplate and to reduce complexity in the main module of your application
