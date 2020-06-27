@@ -4,7 +4,7 @@ name: CheckBox
 group: controls
 ---
 [CheckBox]: https://avaloniaui.net/docs/controls/checkbox
-[CheckBox API]: https://avaloniaui.net/api/Avalonia.Controls/CheckBox/
+[CheckBox API]: http://reference.avaloniaui.net/api/Avalonia.Controls/CheckBox/
 [CheckBox.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/CheckBox.fs
 
 > *Note*: You can check the Avalonia docs for the [CheckBox] and [CheckBox API] if you need more information.

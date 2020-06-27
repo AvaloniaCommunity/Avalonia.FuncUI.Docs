@@ -3,7 +3,7 @@ layout: control
 name: Menu
 group: controls
 ---
-[Menu API]: https://avaloniaui.net/api/Avalonia.Controls/Menu/
+[Menu API]: http://reference.avaloniaui.net/api/Avalonia.Controls/Menu/
 [Menu.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Menu.fs
 [Menu]: http://avaloniaui.net/docs/controls/menu
 [Image]: http://avaloniaui.net/docs/controls/image

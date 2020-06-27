@@ -5,7 +5,7 @@ group: controls
 ---
 [Button]: https://avaloniaui.net/docs/controls/button
 [Views and Attributes]: guides/Views-and-Attributes.html
-[Click Mode]: https://avaloniaui.net/api/Avalonia.Controls/ClickMode/
+[Click Mode]: http://reference.avaloniaui.net/api/Avalonia.Controls/ClickMode/
 [Button.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Button.fs
 
 > *Note*: You can check the Avalonia docs for the [Button] if you need more information.

@@ -3,10 +3,10 @@ layout: control
 name: DatePicker
 group: controls
 ---
-[DatePicker API]: https://avaloniaui.net/api/Avalonia.Controls/DatePicker/
+[DatePicker API]: http://reference.avaloniaui.net/api/Avalonia.Controls/DatePicker/
 [DatePicker.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Calendar/DatePicker.fs
 [Custom date and time format strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings/
-[DatePickerFormat]: http://avaloniaui.net/api/Avalonia.Controls/DatePickerFormat/
+[DatePickerFormat]: http://reference.avaloniaui.net/api/Avalonia.Controls/DatePickerFormat/
 
 > *Note*: You can check the Avalonia docs for the [DatePicker API] if you need more information.
 >

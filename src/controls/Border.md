@@ -6,9 +6,9 @@ group: controls
 [Border]: https://avaloniaui.net/docs/controls/border
 [Views and Attributes]: guides/Views-and-Attributes.html
 [Border.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Border.fs
-[IBrush]: https://avaloniaui.net/api/Avalonia.Media/IBrush/
-[Thickness]: https://avaloniaui.net/api/Avalonia/Thickness/
-[Corner Radius]: https://avaloniaui.net/api/Avalonia/CornerRadius/
+[IBrush]: http://reference.avaloniaui.net/api/Avalonia.Media/IBrush/
+[Thickness]: http://reference.avaloniaui.net/api/Avalonia/Thickness/
+[Corner Radius]: http://reference.avaloniaui.net/api/Avalonia/CornerRadius/
 
 > *Note*: You can check the Avalonia docs for the [Border] if you need more information.
 >

@@ -3,7 +3,7 @@ layout: control
 name: TabControl
 group: controls
 ---
-[TabControl API]: https://avaloniaui.net/api/Avalonia.Controls/TabControl/
+[TabControl API]: http://reference.avaloniaui.net/api/Avalonia.Controls/TabControl/
 [TabControl.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/TabControl.fs
 [TabControl]: http://avaloniaui.net/docs/controls/tabcontrol
 [example]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.ControlCatalog/Views/MainView.fs

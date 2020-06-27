@@ -3,6 +3,7 @@ src/_public/*
 *.DS_Store
 .fake
 .ionide
+.idea
 
 .vscode/*
 !.vscode/settings.json
