@@ -29,7 +29,7 @@ public static readonly RoutedEvent<RoutedEventArgs> ClickEvent =
     RoutedEvent.Register<Button, RoutedEventArgs>(nameof(Click), RoutingStrategies.Bubble);
 ```
 
-that's all we need to know before we start creating a binding to create bindings like Avalonia.FuncUI ones we need to define a module with the name of the control and add two things, a `create` function and a *augment* the existing control. 
+That's all we need to know before we start creating a binding. To create bindings like Avalonia.FuncUI ones, we need to define a module with the name of the control and add two things, a `create` function and *augment* the existing control with some static methods. 
 
 Let's check [Button.fs] in Avalonia.FuncUI.source code
 ```fsharp
