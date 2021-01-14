@@ -37,8 +37,8 @@ let layout (ctx : SiteContents) active file bodyCnt =
     // Create pageLink from relative
     let pageLink = Option.map ((+) "https://github.com/AvaloniaCommunity/Avalonia.FuncUI.Docs/blob/master/src/") file
 
-    let pages = 
-        ctx.TryGetValues<Pageloader.Page> () 
+    let pages =
+        ctx.TryGetValues<Pageloader.Page> ()
         |> Option.defaultValue Seq.empty
 
     let releaseNotes =
@@ -64,7 +64,7 @@ let layout (ctx : SiteContents) active file bodyCnt =
       |> Option.map (fun si -> si.title)
       |> Option.defaultValue ""
 
-    let baseurl =
+    let baseUrl =
         siteInfo
         |> Option.map (fun si -> si.baseUrl)
         |> Option.defaultValue "/"
@@ -132,20 +132,38 @@ let layout (ctx : SiteContents) active file bodyCnt =
         head [] [
             meta [CharSet "utf-8"]
             meta [Name "viewport"; Content "width=device-width, initial-scale=1"]
+            meta [Name "theme-color"; Content "#ffffff"]
+            meta [Name "msapplication-TileColor"; Content "#ffffff"]
+            meta [Name "msapplication-TileImage"; Content (baseUrl + "images/ms-icon-144x144.png") ]
+
             title [] [!! ttl]
-            link [Rel "icon"; Type "image/png"; Sizes "32x32"; Href (baseurl + "images/favicon.png")]
+            link [Rel "manifest"; Href "/manifest.json"]
+            link [Rel "icon"; Type "image/png"; Sizes "32x32"; Href (baseUrl + "images/favicon.png") ]
+            link [Rel "apple-touch-icon"; Sizes "57x57"; Href (baseUrl + "images/apple-icon-57x57.png") ]
+            link [Rel "apple-touch-icon"; Sizes "60x60"; Href (baseUrl + "images/apple-icon-60x60.png") ]
+            link [Rel "apple-touch-icon"; Sizes "72x72"; Href (baseUrl + "images/apple-icon-72x72.png") ]
+            link [Rel "apple-touch-icon"; Sizes "76x76"; Href (baseUrl + "images/apple-icon-76x76.png") ]
+            link [Rel "apple-touch-icon"; Sizes "114x114"; Href (baseUrl + "images/apple-icon-114x114.png") ]
+            link [Rel "apple-touch-icon"; Sizes "120x120"; Href (baseUrl + "images/apple-icon-120x120.png") ]
+            link [Rel "apple-touch-icon"; Sizes "144x144"; Href (baseUrl + "images/apple-icon-144x144.png") ]
+            link [Rel "apple-touch-icon"; Sizes "152x152"; Href (baseUrl + "images/apple-icon-152x152.png") ]
+            link [Rel "apple-touch-icon"; Sizes "180x180"; Href (baseUrl + "images/apple-icon-180x180.png") ]
+            link [Rel "icon"; Type "image/png"; Sizes "192x192"; Href (baseUrl + "images/android-icon-192x192.png") ]
+            link [Rel "icon"; Type "image/png"; Sizes "32x32"; Href (baseUrl + "images/favicon-32x32.png") ]
+            link [Rel "icon"; Type "image/png"; Sizes "96x96"; Href (baseUrl + "images/favicon-96x96.png") ]
+            link [Rel "icon"; Type "image/png"; Sizes "16x16"; Href (baseUrl + "images/favicon-16x16.png") ]
             link [Rel "stylesheet"; Href "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"]
             link [Rel "stylesheet"; Href "https://fonts.googleapis.com/css?family=Open+Sans"]
             link [Rel "stylesheet"; Href "https://unpkg.com/bulma@0.8.0/css/bulma.min.css"]
             link [Rel "stylesheet"; Href "https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-coy.min.css"]
-            link [Rel "stylesheet"; Type "text/css"; Href (baseurl + "style/style.css")]
-            ``base`` [Href baseurl]
+            link [Rel "stylesheet"; Type "text/css"; Href (baseUrl + "style/style.css")]
+            ``base`` [Href baseUrl]
         ]
         body [] [
             nav [Class "navbar is-funcui is-fixed-top"] [
                 div [Class "container"] [
                     div [Class "navbar-brand"] [
-                        a [Class "navbar-item brand-link"; Href baseurl] [
+                        a [Class "navbar-item brand-link"; Href baseUrl] [
                             img [Src "https://raw.githubusercontent.com/AvaloniaCommunity/Avalonia.FuncUI/master/github/img/logo/FuncUI.png"; Alt "Logo"]
                         ]
                         span [Class "navbar-burger burger"; Custom ("data-target", "navbarMenu")] [
@@ -161,11 +179,11 @@ let layout (ctx : SiteContents) active file bodyCnt =
                 if showSidebar then
                     aside [Class "menu main-menu"] menuContent
                 div [Class "page-content"] [
-                    yield! bodyCnt
                     match pageLink with
                     | Some pageLink ->
-                        a [Class "edit-page"; Href pageLink] [i [Class "fa fa-pencil-square-o"] []; !! " Edit this page"]
-                    | None -> ()
+                        a [Class "edit-page button is-small is-link is-outlined"; Href pageLink] [i [Class "fa fa-pencil-square-o"] []; !! " Edit this page"]
+                    | None -> !!""
+                    yield! bodyCnt
                 ]
             ]
             footer [Class "main-footer footer"] [
@@ -176,7 +194,7 @@ let layout (ctx : SiteContents) active file bodyCnt =
                         ]
                     ]
             ]
-            script [Src (baseurl + "js/index.js")] []
+            script [Src (baseUrl + "js/index.js")] []
             script [Src "https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"] []
             script [Src "https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/autoloader/prism-autoloader.min.js"] []
         ]
