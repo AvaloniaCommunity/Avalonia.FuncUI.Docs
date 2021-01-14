@@ -5,9 +5,9 @@ html, body {
 
 .main-content {
   display: grid;
-  grid-template: 'menu content' minmax(100vh, 1fr) / 0.25fr 0.75fr;
-  gap: 1em;
-  margin: 1em;
+  grid-template: 'menu content' 1fr / auto 80vw;
+  gap: 0.5em;
+  margin: 0.5em;
   grid-auto-flow: dense;
 }
 
@@ -15,15 +15,20 @@ html, body {
   display: grid;
   grid-template:
     'aboutheader aboutheader' auto
-    'left right' auto / 1fr 1fr;
-  gap: 1em;
-  margin: 1em;
+    'left right' auto / auto 50vw;
+  gap: 0.5em;
+  margin: 0.5em;
   grid-auto-flow: dense;
+}
+
+.footer .menu {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1023px) {
   .main-content {
-    grid-template: 'content' minmax(0, 1fr) / minmax(0, 1fr);
+    grid-template: 'content' auto / 100vw;
   }
 }
 
@@ -40,6 +45,9 @@ html, body {
       'aboutheader' auto
       'left' auto
       'right' / auto;
+  }
+  .footer .menu {
+    display: none;
   }
 }
 
@@ -70,13 +78,14 @@ html, body {
 
 .page-content {
   grid-area: content;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0.5em;
 }
 
 .edit-page {
-  position: absolute;
-  right: 20px;
-  top: 10px;
+  align-self: flex-end;
+  margin: 0.2em 0;
 }
 
 .brand-link {
