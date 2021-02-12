@@ -67,7 +67,7 @@ TextBlock.margin (horizontal = 5.0, vertical = 5.0)
 TabControl.margin (5.0, 5.0, 5.0, 5.0)
 ListBox.margin (left = 5.0, top = 5.0, right = 5.0, bottom = 5.0)
 ```
-Pretty neat, Hah. Those overloads exist for a lot of attributes (you can also add them yourself), my favorite on is:
+Pretty neat, Hah. Those overloads exist for a lot of attributes (you can also add them yourself), my favorite one is:
 ```
 Button.background "green" // or "#00ff00"
 ```
