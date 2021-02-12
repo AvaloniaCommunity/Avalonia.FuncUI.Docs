@@ -11,7 +11,7 @@ group: controls
 
 Native menus were introduced in Avalonia in version 0.9.0 you can check the [announcement] to see a brief explanation on how to use them in Avalonia Applications.
 
-Currently for Avalonia.FuncUI there is not a DSL and the NativeMenu control is in a weird spot for Avalonia.FuncUI since this control works directly on the main Application/Window object so it's though to pull a DSL on top of that. But! thankfully you can just use plain F# for the menu as noted [in this issue].
+Currently for Avalonia.FuncUI there is not a DSL and the NativeMenu control is in a weird spot for Avalonia.FuncUI since this control works directly on the main Application/Window object so it's tough to pull a DSL on top of that. But! thankfully you can just use plain F# for the menu as noted [in this issue].
 
 
 ## Usage
