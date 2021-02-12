@@ -63,10 +63,10 @@ type [<Struct>] SubPatchOptions =
     | Always
     /// Never updates the subscription. This should be used most of the time. Use this if you don't depend on outer dependencies.
     | Never
-    /// Update if 't changed. This is useful if your using some state ('t) and need to update the subscription if that state changed.
+    /// Update if 't changed. This is useful if you're using some state ('t) and need to update the subscription if that state changed.
     | OnChangeOf of obj
 ```
-this property will indicate Avalonia.FuncUI when to update a subscription.
+this property will indicate to Avalonia.FuncUI when to update a subscription.
 
 You can also provide overloaded methods to improve the API surface of a control for example in [Textblock.fs] we provide two `background` functions, one takes an IBrush and the other one takes a string.
 ```fsharp
