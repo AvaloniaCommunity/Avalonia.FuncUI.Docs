@@ -41,17 +41,17 @@ let update (msg: Msg) (state: State) =
             Process.Start("open", url) |> ignore
         state, Cmd.none
 ```
-Since Avalonia (therefore Avalonia.FuncUI) runs on top of .net core you can use .netstandard API's
-here we use the following namespaces to determine on which platform we're running and what kind of way to open a link that works for our OS.
+Since Avalonia (therefore Avalonia.FuncUI) runs on top of .net core you can use .netstandard API's.
+Here we use the following namespaces to determine on which platform we're running, so we can open a link in a way that works for our OS.
 ``` fsharp
 open System.Diagnostics
 open System.Runtime.InteropServices
 ```
 
 ## Shell.fs
-The `Shell.fs` file is a little more complex than the Counter or the Program you found in the Basic Template. Here we show you how you can use the `TabControl` to create an application that can show multiple views on the same module, people coming from a web background might think it looks like a `Single Page Application` and they would be right. All of the application is inside a single MainWindow class but, how does this impact the way the application is structured?
+The `Shell.fs` file is a little more complex than the Counter or the Program you found in the Basic Template. Here we show you how you can use the `TabControl` to create an application that can show multiple views on the same module. People coming from a web background might think it looks like a `Single Page Application` and they would be right. All of the application is inside a single MainWindow class, but how does this impact the way the application is structured?
 
-There are some ways to do it one of them is to use `ViewBuilder.Create<MODULE_NAME.Host>([])` which we will talk about in the [Quickstart Template]
+There are some ways to do it, one of them is to use `ViewBuilder.Create<MODULE_NAME.Host>([])` which we will talk about in the [Quickstart Template]
 and the other is the approach used inside `Shell.fs`. The main points to talk about are
 ```fsharp
 type State =
@@ -84,7 +84,7 @@ let view (state: State) (dispatch) =
    /// ... mode omitted code
 ```
 
-The main take away from this is that most Elmish modules are structured in the same way and contain the same public functions, therefore you can use Elmish modules inside other modules themselves (`Shell.fs` is a Elmish module that includes other two Elmish modules).
+The main take away from this is that most Elmish modules are structured in the same way and contain the same public functions, therefore you can use Elmish modules inside other modules themselves (`Shell.fs` is a Elmish module that includes two other Elmish modules).
 
 The state contains the children's state definitions
 - `aboutState: About.State;`
@@ -96,7 +96,7 @@ The Msg also contains the children's Msg types
 - `CounterMsg of Counter.Msg`
 
 
-The init function also has some changes; There are modules that require some sort of initialization in those cases you often use [Commands](https://elmish.github.io/elmish/#Commands) or [Subscriptions](https://elmish.github.io/elmish/#Subscriptions) and it's very likely that the init function of that module returns the state with a command, the module may not return a command at all just the initial state (model)
+The init function also has some changes; There are modules that require some sort of initialization, in those cases you often use [Commands](https://elmish.github.io/elmish/#Commands) or [Subscriptions](https://elmish.github.io/elmish/#Subscriptions) and it's very likely that the init function of that module returns the state with a command, though the module may not return a command at all just the initial state (model)
 ```fsharp
 let init =
     let aboutState, aboutCmd = About.init
@@ -160,7 +160,6 @@ The Full Template includes a sample of custom styles, it is a simple Xaml file
 <!-- ... more code -->
 </Styles>
 ```
-You can read more about styles in the [Avalonia Style's Docs](https://avaloniaui.net/docs/styles/styles)
-you are able to include other resources from other libraries if they expose them. One of our samples does this, you can check it [here](https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Program.fs#L12)
+You can read more about styles in the [Avalonia Style's Docs](https://avaloniaui.net/docs/styles/styles). You are able to include other resources from other libraries if they expose them. One of our samples does this, you can check it [here](https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Program.fs#L12).
 
 
