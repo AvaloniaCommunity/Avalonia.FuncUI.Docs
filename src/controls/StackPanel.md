@@ -27,7 +27,7 @@ StackPanel.create [
 
 **Example**
 
-![StackPanel](/images/controls/stackpanel/basic.png)
+![StackPanel](images/controls/stackpanel/basic.png)
 
 ```fsharp
 StackPanel.create [
@@ -62,7 +62,7 @@ StackPanel.create [
 
 **Example**
 
-![StackPanel Spacing](/images/controls/stackpanel/spacing.png)
+![StackPanel Spacing](images/controls/stackpanel/spacing.png)
 
 ```fsharp
 StackPanel.create [
