@@ -66,7 +66,7 @@ type App() =
 ```
 This class is the equivalent of `App.xaml` and `App.xaml.cs` in Avalonia here we override the the `Initialize()` method to load the default styles that come from Avalonia, try switching `BaseDark.xaml` to `BaseLight.xaml` to use the light theme on your application, here you may also load your custom styles. For more information on that please check the [Full Template].
 
-the `OnFrameworkInitializationCompleted()` method is overridden to set our MainWindow class the application's `MainWindow`
+the `OnFrameworkInitializationCompleted()` method is overridden to set our MainWindow class as the application's `MainWindow`
 
 
 ## Counter.fs
@@ -132,7 +132,7 @@ Elmish.Program.mkSimple (fun _ -> Counter.init) Counter.update Counter.view
 in this case, the counter starts at 0 `{ count = 0 }`
 
 ### Msg
-The `Msg` type allows us to identify which "events" is our application responding to
+The `Msg` type allows us to identify which "events" our application is responding to
 ```fsharp
 type Msg = Increment | Decrement | Reset
 ```
@@ -141,7 +141,7 @@ in this case, we have three possible events
 - Decrement
 - Reset
 
-these Msg types should be descriptive on what they are reacting/doing in your module
+these Msg types should be descriptive of what they are doing/reacting to in your module
 
 ### Update
 In F# the data is often immutable this means every time you need to do changes you have to return updated copies of your data. The update function is the central place where you make changes to your state (model) depending on the message that was dispatched
@@ -153,10 +153,10 @@ let update (msg: Msg) (state: State) : State =
     | Reset -> init
 ```
 In this case, the messages are simple as well as the state, so the changes are pretty self-descriptive 
-`Increment` updates the count plus 1 integer, `Decrement` substracts 1 integer, `Reset` takes our initial model back to 0
+`Increment` updates the count by adding 1 integer, `Decrement` substracts 1 integer, `Reset` takes our initial model back to 0
 
 ### View
-This will be a brief explanation of the parts that glue everything together, to have other examples and a more concise explanation for the View Controls and their attributes, you can check [Views and Attributes]
+This will be a brief explanation of the parts that glue everything together, for other examples and a more concise explanation of the View Controls and their attributes, you can check [Views and Attributes]
 
 ```fsharp
 let view (state: State) (dispatch: Msg -> unit) =
@@ -177,5 +177,5 @@ let view (state: State) (dispatch: Msg -> unit) =
         ]
     ]
 ```
-The view has two parameters: `state` which is the current state (model) of your module as well as a `dispatch` function, this dispatch function takes a `Msg` (It can be any of our Msg types: `Increment`, `Decrement`, `Reset`) and doesn't have a special return type (unit) `Elmish` and `Avalonia.FuncUI` glue the dispatch function.
-to use the information that is stored in the state, we simply use `state.{property}` in this case, we have a text block (label) that renders out the current count on the screen.
+The view has two parameters: `state` which is the current state (model) of your module as well as a `dispatch` function, this dispatch function takes a `Msg` (it can be any of our Msg types: `Increment`, `Decrement`, `Reset`) and doesn't have a special return type (unit) `Elmish` and `Avalonia.FuncUI` glue the dispatch function.
+To use the information that is stored in the state, we simply use `state.{property}` In this case, we have a text block (label) that renders out the current count on the screen.

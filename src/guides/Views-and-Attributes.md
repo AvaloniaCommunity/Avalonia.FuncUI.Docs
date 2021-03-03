@@ -5,7 +5,7 @@ author: Avalonia Community
 list-order: 4
 guide-category: beginner
 ---
-F# is a great language to built DSLs (Domain Specific Languages), this library contains a [elm like](https://package.elm-lang.org/packages/elm/html/latest/) DSL used to describe Views.
+F# is a great language to build DSLs (Domain Specific Languages), this library contains an [elm like](https://package.elm-lang.org/packages/elm/html/latest/) DSL used to describe Views.
 
 ```fsharp
 let view (state: CounterState) (dispatch): View =
