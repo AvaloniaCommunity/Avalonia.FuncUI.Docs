@@ -14,12 +14,12 @@ group: controls
 >
 > For Avalonia.FuncUI's DSL properties you can check [Border.fs]
 
-The Border controll allows you to decorate child controls
+The Border control allows you to decorate child controls
 
 ## Usage
 
 **Set Background**
-Avalonia.FuncUI has some overloads for you to take advantage on
+Avalonia.FuncUI has some overloads for you to take advantage of
 
 ```fsharp
 Border.create [
@@ -31,10 +31,10 @@ Border.create [
 	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
-> You can pass any [IBrush] compatible instance for the background for more control
+> You can pass any [IBrush] compatible instance to the background for more control
 
 **Set Border Brush**
-Avalonia.FuncUI has some overloads for you to take advantage on
+Avalonia.FuncUI has some overloads for you to take advantage of
 
 ```fsharp
 Border.create [
@@ -48,7 +48,7 @@ Border.create [
 	Border.child (StackPanel.create [ /* ... definition ... */ ])
 ]
 ```
-> You can pass any [IBrush] compatible instance for the background for more control
+> You can pass any [IBrush] compatible instance to the background for more control
 
 
 **Thickness**

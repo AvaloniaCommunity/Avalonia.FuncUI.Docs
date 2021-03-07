@@ -26,7 +26,7 @@ DockPanel.create [
 ```
 
 You can use multiple dockings inside of one panel. It will dock in order of the children list
-(You can see that in the example).
+(you can see that in the example).
 
 **Example**
 

@@ -52,8 +52,7 @@ TabControl.create [
 
 **Set HostControl as content**
 
-You can also include individual Elmish Controls as the content of your tabs by using the [ViewBuilder]
-visit the [example] to see it in action
+You can also include individual Elmish Controls as the content of your tabs by using the [ViewBuilder]. Visit the [example] to see it in action
 
 ```fsharp
 // counter.fs
@@ -95,4 +94,4 @@ TabControl.create [
     TabControl.viewItems tabs
 ]
 ```
-In the example above the `Counter` module defines a `HostControl` to allow that module to work by itself this means you don't need to nest every view/control inside the main Elmish module of your app this can help you to reduce boilerplate and to reduce complexity in the main module of your application
+In the example above the `Counter` module defines a `HostControl` to allow that module to work by itself. This means you don't need to nest every view/control inside the main Elmish module of your app, this can help you reduce boilerplate and complexity in the main module of your application
