@@ -27,7 +27,7 @@ TextBox.create [
 
 **Example**
 
-Often you simply safe the string in the state and use it for other things from there:
+Often you simply save the string in the state and use it for other things from there:
 
 ![TextBox](images/controls/textbox/basic.png)
 

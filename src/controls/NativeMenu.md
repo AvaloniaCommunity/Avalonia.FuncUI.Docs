@@ -9,7 +9,7 @@ group: controls
 
 > You can check the [NativeMenu] Avalonia docs for more information
 
-Native menus were introduced in Avalonia in version 0.9.0 you can check the [announcement] to see a brief explanation on how to use them in Avalonia Applications.
+Native menus were introduced in Avalonia in version 0.9.0, you can check the [announcement] to see a brief explanation on how to use them in Avalonia Applications.
 
 Currently for Avalonia.FuncUI there is not a DSL and the NativeMenu control is in a weird spot for Avalonia.FuncUI since this control works directly on the main Application/Window object so it's tough to pull a DSL on top of that. But! thankfully you can just use plain F# for the menu as noted [in this issue].
 
@@ -68,7 +68,7 @@ type MainWindow() as this =
         |> Program.withConsoleTrace
         |> Program.run
 ```
-and that is enough to show your native menu, if you want to interact with the contents of your menu (the most likely scenario) you will need to add some subscriptions to hook up with your Elmish program
+and that is enough to show your native menu. If you want to interact with the contents of your menu (the most likely scenario) you will need to add some subscriptions to hook up with your Elmish program
 
 ```fsharp
 // 🚩hook menu actions in Elmish

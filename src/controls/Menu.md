@@ -67,7 +67,7 @@ Menu.create [
 
 **Set Icons**
 
-To set Icons to the menu item you just need to provide an [Image]
+To add Icons to the menu item you just need to provide an [Image],
 you can check this [sample] which uses an extension method defined in [this file]
 
 ```fsharp

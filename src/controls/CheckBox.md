@@ -46,7 +46,7 @@ CheckBox.create [
 **Set Dynamic State Checkbox**
 
 You can mix and match the three states of a checkbox. In this example
-if the count value is greater than 0 the box will be checked, if the value is 0 then it will be indeterminate lastly if the value is less than 0 it will be unchecked
+if the count value is greater than 0 the box will be checked, if the value is 0 then it will be indeterminate, lastly if the value is less than 0 it will be unchecked
 ```fsharp
 let isChecked =
     if state.count = 0 then
