@@ -39,7 +39,7 @@ TextBlock.create [
 To set the text color, you can again pass either a basic string or an IBrush instance
 ```fsharp
 TextBlock.create [
-    TextBlock.background "green"
+    TextBlock.foreground "green"
     TextBlock.text "All systems operational."
 ]
 ```
