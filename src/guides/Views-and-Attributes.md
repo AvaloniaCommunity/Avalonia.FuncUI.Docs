@@ -2,9 +2,10 @@
 layout: guide
 title: Views And Attributes
 author: Avalonia Community
-list-order: 4
+list-order: 3
 guide-category: beginner
 ---
+
 F# is a great language to build DSLs (Domain Specific Languages), this library contains an [elm like](https://package.elm-lang.org/packages/elm/html/latest/) DSL used to describe Views.
 
 ```fsharp
@@ -37,6 +38,7 @@ let view (state: CounterState) (dispatch): View =
 # 🔰 Basics
 
 Support for all Avalonia Controls is built-in. You can use them like this:
+
 > **{ControlName}**.create [ **{ControlName}**.**{attributeName}** ]
 
 ```fsharp
@@ -67,11 +69,15 @@ TextBlock.margin (horizontal = 5.0, vertical = 5.0)
 TabControl.margin (5.0, 5.0, 5.0, 5.0)
 ListBox.margin (left = 5.0, top = 5.0, right = 5.0, bottom = 5.0)
 ```
+
 Pretty neat, Hah. Those overloads exist for a lot of attributes (you can also add them yourself), my favorite one is:
+
 ```
 Button.background "green" // or "#00ff00"
 ```
+
 ## 🔧 Properties
+
 For each .NET Property defined on an Avalonia Control there is a corresponding Attribute. Most of them are Property Attributes, but not all of them.
 
 ```fsharp
@@ -83,8 +89,11 @@ Button.create [
 ```
 
 ## ⚡ Events
+
 Events are just like other attributes. You can easily recognize them by their prefix. Events are named like this
+
 > **{ControlName}**.on**{EventName}**
+
 ```fsharp
 Button.onClick (fun args -> // do something )
 TextBox.onKeyDown (fun args -> // do something )
@@ -92,22 +101,29 @@ TextBox.onKeyUp (fun args -> // do something )
 ListBox.onSelectionChanged (fun args -> // do something )
 ...
 ```
+
 ## 🧲 Attached Properties
+
 Attached Attributes are used like Events and normal Properties.
+
 > **{ControlName}**.**{name}**
+
 ```fsharp
 StackPanel.dock Dock.Top
 StackPanel.row 1
 StackPanel.column 1
 ...
 ```
+
 > ⚠ Currently not all attached properties are supported / declared. This is currently in process, feel free to create an issue if something is missing
 
 ## 📦 Content Properties
+
 Content Properties are attributes containing either a single View or a list of Views. They are often named `content`, `children`, `viewItems`, … you get it.
 
 Here are some examples.
-``` fsharp
+
+```fsharp
 // single view content
 Button.create [
     // takes 'View'
