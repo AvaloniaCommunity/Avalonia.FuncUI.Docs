@@ -10,7 +10,7 @@ guide-category: beginner
 
 While MVU suits for many simple scenarios, there is some friction with bigger projects, scaling up past a few child pages can create a lot of boilerplate for Avalonia Applications.
 
-From v0.5.0 and onwards Avalonia.FuncUI offers a completely new programming model inspited in web frameworks like React and Sutil.
+From v0.5.0 and onwards Avalonia.FuncUI offers a completely new programming model inspired by web frameworks like React and Sutil.
 
 Creating a component is done in the following way
 
