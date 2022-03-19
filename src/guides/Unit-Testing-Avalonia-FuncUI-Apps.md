@@ -6,16 +6,16 @@ list-order: 5
 guide-category: beginner
 ---
 
-[Full Template]: guides/Full-Template.html
-[Expecto]: https://github.com/haf/expecto
+[full template]: guides/Full-Template.html
+[expecto]: https://github.com/haf/expecto
 
 Testing `Avalonia.FuncUI apps` is pretty simple if you have previous experience using Elmish it should be not much different
 for the moment let's dive into it.
 
 > **Note**: For this document, we'll use [Expecto] unit test library.
 
-
 I'm using Powershell Core but feel free to follow on the terminal you like most (if it's bash like remember to change `;` for `&`)
+
 ```
 PS ~/github> mkdir TestingExample; cd TestingExample
 
@@ -34,6 +34,7 @@ PS ~/github/TestingExample> dotnet add TestingExample.Tests reference TestingExa
 Reference `..\TestingExample\TestingExample.fsproj` added to the project.
 
 ```
+
 This gives us a [Full Template] and a Expecto project to start our testing.
 
 First, let's replace the default content of the tests inside `TestingExample.Tests.Sample.fs` with the following
@@ -106,6 +107,7 @@ module Counter =
 ```
 
 let's start adding test cases, `Increment` first:
+
 ```fsharp
 module Tests
 
@@ -123,7 +125,9 @@ let tests =
                 updateMessages |> List.fold (fun state message -> Counter.update message state) initialState
             Expect.equal actual.count 2 "Expected count to be 2" ]
 ```
+
 If you run that code with `dotnet test` right now you will get a failure
+
 ```
 Microsoft (R) Test Execution Command Line Tool Version 16.3.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -145,7 +149,9 @@ Total tests: 1
      Passed: 0
      Failed: 1
 ```
+
 the simple fix is to change this line
+
 ```fsharp
 let initialState: Counter.State = { count = 1 }
 ```
@@ -157,6 +163,7 @@ let initialState: Counter.State = { count = 0 }
 ```
 
 If you run `dotnet test` again
+
 ```
 Microsoft (R) Test Execution Command Line Tool Version 16.3.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -170,6 +177,7 @@ Test Run Successful.
 Total tests: 1
      Passed: 1
 ```
+
 let's add the `Decrement` test
 
 ```fsharp
@@ -190,9 +198,11 @@ let tests =
                   updateMessages |> List.fold (fun state message -> Counter.update message state) initialState
               Expect.equal actual.count -2 "Expected count to be -2" ]
 ```
+
 Pretty simple huh?
 
 Let's add the `Reset` test case
+
 ```fsharp
 module Tests
 
@@ -210,11 +220,13 @@ let tests =
               let actual = Counter.update Counter.Reset initialState
               Expect.equal actual.count 0 "Expected count to be 0" ]
 ```
+
 the advantage of having a central place to do updates and that we always return a `State` is that we can provide the exact state we want and have a predictable test ouput.
 
 You don't need to provide a list of `Msg`'s but here we put a simple example on how can you provide a set of "steps" to archieve a specific state, this could be useful to you if you need to test a specific workflow or something similar.
 
 Lastly, Here's the full suite of tests.
+
 ```fsharp
 module Tests
 
