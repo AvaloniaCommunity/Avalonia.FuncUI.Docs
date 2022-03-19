@@ -27,11 +27,11 @@ WIP
 
 ## useEffect
 
-Sometimes you need to subscribe to an observable, or to an `IWrittable<'T>`, create a disposable value, make some logging or other situations. For these you can use the `useEffect` hook.
+Sometimes you need to subscribe to an observable, to an `IWritable<'T>`, create a disposable value, or make some logging. For these and other scenarios you can use the `useEffect` hook.
 
-This hook requires a `handler` which is a function that can return `unit` or `IDisposable` depending on your needs, for cases where you need to handle subscriptions the second will be better.
+This hook requires a `handler` which is a function that can return `unit` or `IDisposable` depending on your needs. For cases where you need to handle subscriptions the second will be better.
 
-This hook also asks for a `triggers` list, these help Avalonia.FuncUI to decide when to run the handler function, it's possible values are defined as the follwing.
+This hook also asks for a `triggers` list, these help Avalonia.FuncUI to decide when to run the handler function. The possible trigger values are defined as follows:
 
 ```fsharp
 [<RequireQualifiedAccess>]
@@ -155,13 +155,13 @@ Component(fun ctx ->
 
 ### Passed Values
 
-Sometimes when you already have an `IWritable<'T>` value, you would like to use it on sibling components so they can show the same data in different formats or just to communicate changes between different component trees without having to drill the values into the component's tree.
+Sometimes when you already have an `IWritable<'T>` value, you would like to use it on sibling components so they can show the same data in different formats, or just to communicate changes between different component trees without having to drill the values into the component's tree.
 
 For that we can use Passed Values.
 
 ```fsharp
 
-let ComponentA id (value: IWrittable<string>) =
+let ComponentA id (value: IWritable<string>) =
     Component(id, fun ctx ->
         // Right here we can use ctx.usePassed to ensure we can both read/update a value
         let value = ctx.usePassed value
@@ -205,7 +205,7 @@ let View =
                 Button.create [
                     Button.content "I can add 4 from outside"
                     // since state is both readable and writable we can also
-                    // modify the values from outside the children components
+                    // modify the values from outside the child components
                     // as usual
                     Button.onClick (fun _ -> $"{value.Current}4" |> value.Set )
                 ]
