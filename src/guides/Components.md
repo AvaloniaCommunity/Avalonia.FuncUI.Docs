@@ -8,7 +8,7 @@ guide-category: beginner
 
 [hooks]: guides/Hooks.html
 
-While MVU suits for many simple scenarios, there is some friction with bigger projects, scaling up past a few child pages can create a lot of boilerplate for Avalonia Applications.
+While MVU suits many simple scenarios, there is some friction with bigger projects, scaling up past a few child pages can create a lot of boilerplate for Avalonia applications.
 
 From v0.5.0 and onwards Avalonia.FuncUI offers a completely new programming model inspired by web frameworks like React and Sutil.
 
@@ -55,12 +55,12 @@ let counter (id: string) (initial: int)=
 
 let view =
     // Component creates an instance that can be assigned to
-    // Any other Avalonia component's Content
+    // any other Avalonia component's Content
     Component(fun ctx ->
         StackPanel.create [
             StackPanel.children [
                 TextBlock.create [
-                    TextBlock.text "We Can still use our existing components"
+                    TextBlock.text "We can still use our existing components"
                 ]
                 counter "counter-1" 0
                 counter "counter-2" 100
@@ -78,7 +78,7 @@ type MainWindow() as this =
         this.Content <- Counter.view
 ```
 
-Components still use the same DSL for Avalonia.FuncUI, but the way they handle updates is different, it is mostly guided by `IWrittable<'T>`'s updates, so if you have sections in your views that are _stateful_ by nature, components are a natural fit for that. In other cases you can still use normal F# functions, they will get updated if their parameters values change.
+Components still use the same DSL for Avalonia.FuncUI, but the way they handle updates is different, it is mostly guided by `IWritable<'T>`'s updates, so if you have sections in your views that are _stateful_ by nature, components are a natural fit for that. In other cases you can still use normal F# functions, they will get updated if the values of their parameters change.
 
 MVU is also not going anywhere, in the Hooks section you will be able to see how to use the new `useElmish` hook that can help you mix and match these two different approaches without compromises.
 
