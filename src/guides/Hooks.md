@@ -27,7 +27,77 @@ WIP
 
 ## useEffect
 
-WIP
+Sometimes you need to subscribe to an observable, or to an `IWrittable<'T>`, create a disposable value, make some logging or other situations. For these you can use the `useEffect` hook.
+
+This hook requires a `handler` which is a function that can return `unit` or `IDisposable` depending on your needs, for cases where you need to handle subscriptions the second will be better.
+
+This hook also asks for a `triggers` list, these help Avalonia.FuncUI to decide when to run the handler function, it's possible values are defined as the follwing.
+
+```fsharp
+[<RequireQualifiedAccess>]
+type EffectTrigger =
+    /// triggers the effect to run every time after the passed dependency has changed.
+    | AfterChange of state: IAnyReadable
+    /// triggers the effect to run once after the component initially rendered.
+    | AfterInit
+    /// triggers the effect to run every time after the component is rendered.
+    | AfterRender
+```
+
+For example if we had to fetch some resources from a server after the component is initialized we would do something like the following:
+
+```fsharp
+Component("use-effect-component", fun ctx ->
+    let names = ctx.useState []
+    let count = ctx.useState 0
+    ctx.useEffect (
+        handler = (fun _ ->
+            // Common use cases here are HTTP Requests, Event and Observable Subscriptions
+            // or any other code that could be considered a side effect
+            async {
+                let! nameList = httpLib.get "https://my-resources.com"
+                // update the names value
+                names.Set nameList
+            }
+            |> Async.Start
+        ),
+        triggers = [ EffectTrigger.AfterInit ]
+    )
+    // DSL code
+)
+```
+
+We can also re-execute these handlers if we make them dependant of any readable values, for example let us try to compute the sum of the ages of a user list whenever the user list changes.
+
+```fsharp
+Component("use-effect-component", fun ctx ->
+    let users = ctx.useState []
+    let ageSum = ctx.useState 0
+    ctx.useEffect (
+        handler = (fun _ ->
+            // Common use cases here are HTTP Requests, Event and Observable Subscriptions
+            // or any other code that could be considered a side effect
+            async {
+                let! nameList = httpLib.get "https://my-resources.com"
+                // update the names value
+                names.Set nameList
+            }
+            |> Async.Start
+        ),
+        triggers = [ EffectTrigger.AfterInit ]
+    )
+    ctx.useEffect(
+        handler = (fun _ ->
+            // get sum of the ages of the users list
+            users
+            |> List.sumBy (fun user -> user.age)
+            |> ageSum.Set
+        ),
+        // whenever the users list changes, trigger this effect
+        triggers = [ EffectTrigger.AfterChange users ]
+    )
+)
+```
 
 ## IReadable<'T>
 

@@ -78,6 +78,10 @@ type MainWindow() as this =
         this.Content <- Counter.view
 ```
 
+Components still use the same DSL for Avalonia.FuncUI, but the way they handle updates is different, it is mostly guided by `IWrittable<'T>`'s updates, so if you have sections in your views that are _stateful_ by nature, components are a natural fit for that. In other cases you can still use normal F# functions, they will get updated if their parameters values change.
+
+MVU is also not going anywhere, in the Hooks section you will be able to see how to use the new `useElmish` hook that can help you mix and match these two different approaches without compromises.
+
 ### Looking for more advanced uses?
 
 For more Advanced uses check [Hooks]
