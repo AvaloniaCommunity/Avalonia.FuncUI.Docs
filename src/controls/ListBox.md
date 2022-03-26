@@ -24,6 +24,7 @@ ListBox.create [
 ```
 
 **Multiple Item Selection Mode**
+
 You can choose different [ListBox Selection Modes]. The default is to only select a single element.
 ```fsharp
 ListBox.create [
@@ -45,7 +46,9 @@ ListBox.create [
 ```
 
 **Controlling Selected Item**
+
 To override the controls default behavior you need to add both `selectedItem` and `onSelectedItemChanged`
+
 ```fsharp
 ListBox.create [
     ListBox.dataItems [ "Linux"; "Mac"; "Windows" ]
@@ -55,7 +58,9 @@ ListBox.create [
 ```
 
 **Controlling Selected Item by Index**
+
 To override the controls default behavior you need to add both `selectedItem` and `onSelectedItemChanged`
+
 ```fsharp
 ListBox.create [
     ListBox.dataItems [ "Linux"; "Mac"; "Windows" ]
