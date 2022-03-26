@@ -16,7 +16,7 @@ The list box is a multi-line control box for allowing a user to choose value.
 
 ## Usage
 
-**Basic**
+**Create a list box**
 ```fsharp
 ListBox.create [
     ListBox.dataItems [ "Linux"; "Mac"; "Windows" ]
