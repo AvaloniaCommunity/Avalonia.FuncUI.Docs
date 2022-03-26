@@ -12,7 +12,7 @@ group: controls
 >
 > For Avalonia.FuncUI's DSL properties you can check [DatePicker.fs]
 
-The DatePicker control is a single date picker that displays a calendar, it is also posible to enter a date via the TextBox the control has
+The DatePicker control is a single date picker that displays a calendar, it is also possible to enter a date via the TextBox the control has
 
 ## Usage
 

@@ -50,7 +50,6 @@ To override the controls default behavior you need to add both `selectedItem` an
 ListBox.create [
     ListBox.dataItems [ "Linux"; "Mac"; "Windows" ]
     ListBox.selectedItem state.os
-    // remember to use OnChangeOf to give FuncUI hints about when to dispatch the messages
     ListBox.onSelectedItemChanged (fun os -> dispatch ChangeOs)
 ]
 ```
@@ -61,7 +60,6 @@ To override the controls default behavior you need to add both `selectedItem` an
 ListBox.create [
     ListBox.dataItems [ "Linux"; "Mac"; "Windows" ]
     ListBox.selectedIndex state.osIndex
-    // remember to use OnChangeOf to give FuncUI hints about when to dispatch the messages
     ListBox.onSelectedIndexChanged (fun os -> dispatch ChangeOsIndex)
 ]
 ```
