@@ -59,8 +59,8 @@ ToggleButton.create [
     // this value is required to be either a nullable boolean
     // or a boolean option
     ToggleButton.isChecked state.checked
-    // Returns a Nullable<boo> value
-    ToggleButton.onIsCheckedChanged (fun nullabelVal -> OnChecked val |> dispatch
+    // Returns a Nullable<bool> value
+    ToggleButton.onIsCheckedChanged (fun nullabelVal -> OnChecked val |> dispatch)
 ]
 ```
 
