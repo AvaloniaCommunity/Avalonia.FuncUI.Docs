@@ -3,7 +3,7 @@ layout: control
 name: TextBlock
 group: controls
 ---
-[TextBlock]: https://avaloniaui.net/docs/controls/textblock
+[TextBlock]: https://docs.avaloniaui.net/docs/controls/textblock
 [TextBlock API]: http://reference.avaloniaui.net/api/Avalonia.Controls/TextBlock/
 [TextBlock.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/TextBlock.fs
 

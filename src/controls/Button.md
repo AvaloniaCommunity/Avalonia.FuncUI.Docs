@@ -5,15 +5,9 @@ group: controls
 ---
 [Button]: https://docs.avaloniaui.net/docs/controls/button
 [Button API]: http://reference.avaloniaui.net/api/Avalonia.Controls/Button/
+[Button.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Button.fs
 [Views and Attributes]: guides/Views-and-Attributes.html
 [Click Mode]: http://reference.avaloniaui.net/api/Avalonia.Controls/ClickMode/
-[Button.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Button.fs
-[ToggleButton]: https://docs.avaloniaui.net/docs/controls/togglebutton
-[ToggleButton API]: http://reference.avaloniaui.net/api/Avalonia.Controls/ToggleButton/
-[ToggleButton.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/ToggleButton.fs
-[RepeatButton]: https://docs.avaloniaui.net/docs/controls/repeatbutton
-[RepeatButton API]: http://reference.avaloniaui.net/api/Avalonia.Controls/RepeatButton/
-[RepeatButton.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/RepeatButton.fs
 
 > *Note*: You can check the Avalonia docs for the [Button] and [Button API] if you need more information.
 >

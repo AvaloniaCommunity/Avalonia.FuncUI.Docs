@@ -3,14 +3,15 @@ layout: control
 name: Border
 group: controls
 ---
-[Border]: https://avaloniaui.net/docs/controls/border
-[Views and Attributes]: guides/Views-and-Attributes.html
+[Border]: https://docs.avaloniaui.net/docs/controls/border
+[Border API]: http://reference.avaloniaui.net/api/Avalonia.Controls/Border/
 [Border.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Border.fs
+[Views and Attributes]: guides/Views-and-Attributes.html
 [IBrush]: http://reference.avaloniaui.net/api/Avalonia.Media/IBrush/
 [Thickness]: http://reference.avaloniaui.net/api/Avalonia/Thickness/
 [Corner Radius]: http://reference.avaloniaui.net/api/Avalonia/CornerRadius/
 
-> *Note*: You can check the Avalonia docs for the [Border] if you need more information.
+> *Note*: You can check the Avalonia docs for the [Border] and [Border Api] if you need more information.
 >
 > For Avalonia.FuncUI's DSL properties you can check [Border.fs]
 

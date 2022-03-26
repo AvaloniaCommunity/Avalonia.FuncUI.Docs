@@ -3,7 +3,7 @@ layout: control
 name: StackPanel
 group: controls
 ---
-[StackPanel]: https://avaloniaui.net/docs/controls/stackpanel
+[StackPanel]: https://docs.avaloniaui.net/docs/controls/stackpanel
 [StackPanel API]: http://reference.avaloniaui.net/api/Avalonia.Controls/StackPanel/
 [StackPanel.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Panels/StackPanel.fs
 

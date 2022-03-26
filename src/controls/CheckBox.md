@@ -3,7 +3,7 @@ layout: control
 name: CheckBox
 group: controls
 ---
-[CheckBox]: https://avaloniaui.net/docs/controls/checkbox
+[CheckBox]: https://docs.avaloniaui.net/docs/controls/checkbox
 [CheckBox API]: http://reference.avaloniaui.net/api/Avalonia.Controls/CheckBox/
 [CheckBox.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/CheckBox.fs
 

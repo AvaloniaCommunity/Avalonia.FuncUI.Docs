@@ -3,7 +3,7 @@ layout: control
 name: TextBox
 group: controls
 ---
-[TextBox]: https://avaloniaui.net/docs/controls/textbox
+[TextBox]: https://docs.avaloniaui.net/docs/controls/textbox
 [TextBox API]: http://reference.avaloniaui.net/api/Avalonia.Controls/TextBox/
 [TextBox.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/TextBox.fs
 
