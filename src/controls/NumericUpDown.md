@@ -16,6 +16,8 @@ The NumericUpDown is an editable numeric input field. The control has a up and d
 increment and decrement the value in the input field. The value can also be incremented or decremented using the arrow
 keys or the mouse wheel when the control is selected.
 
+## Usage
+
 **Input with local currency**
 
 Adding the `NumericUpDown.minimum` or `NumericUpDown.maximum` attributes will limit the input for both button increment/decrement
