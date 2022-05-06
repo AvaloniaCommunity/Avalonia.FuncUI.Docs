@@ -3,7 +3,7 @@ layout: control
 name: Expander
 group: controls
 ---
-[Expander]: https://avaloniaui.net/docs/controls/expander
+[Expander]: https://docs.avaloniaui.net/docs/controls/expander
 [Expander API]: http://reference.avaloniaui.net/api/Avalonia.Controls/Expander/
 [Expander.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Expander.fs
 

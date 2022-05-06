@@ -3,9 +3,9 @@ layout: control
 name: Menu
 group: controls
 ---
+[Menu]: http://docs.avaloniaui.net/docs/controls/menu
 [Menu API]: http://reference.avaloniaui.net/api/Avalonia.Controls/Menu/
 [Menu.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Menu.fs
-[Menu]: http://avaloniaui.net/docs/controls/menu
 [Image]: http://avaloniaui.net/docs/controls/image
 [sample]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Shell.fs#L162
 [this file]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Examples/Examples.MusicPlayer/Extensions.fs#L5

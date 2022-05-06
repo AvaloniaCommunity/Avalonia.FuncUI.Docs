@@ -3,18 +3,26 @@ layout: control
 name: DatePicker
 group: controls
 ---
+[DatePicker]: https://docs.avaloniaui.net/docs/controls/datepicker
 [DatePicker API]: http://reference.avaloniaui.net/api/Avalonia.Controls/DatePicker/
-[DatePicker.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Calendar/DatePicker.fs
+[DatePicker.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/DatePicker.fs
 [Custom date and time format strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings/
-[DatePickerFormat]: http://reference.avaloniaui.net/api/Avalonia.Controls/DatePickerFormat/
+[DateTimeOffset]: https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset?view=net-6.0
 
-> *Note*: You can check the Avalonia docs for the [DatePicker API] if you need more information.
+> *Note*: You can check the Avalonia docs for the [DatePicker] and [DatePicker API] if you need more information.
 >
 > For Avalonia.FuncUI's DSL properties you can check [DatePicker.fs]
 
-The DatePicker control is a single date picker that displays a calendar, it is also posible to enter a date via the TextBox the control has
+The DatePicker control is a single date picker that displays a calendar, it is also possible to enter a date via the TextBox the control has
 
 ## Usage
+
+**Set Label**
+```fsharp
+DatePicker.create [
+    DatePicker.header "Title"
+]
+```
 
 **Set Date**
 ```fsharp
@@ -26,52 +34,38 @@ DatePicker.create [
 **Set DateFormat**
 ```fsharp
 DatePicker.create [
-    DatePicker.selectedDateFormat DatePickerFormat.Long
-]
-
-DatePicker.create [
-    DatePicker.selectedDateFormat DatePickerFormat.Short
-]
-
-DatePicker.create [
-    DatePicker.selectedDateFormat DatePickerFormat.Custom
-    // It can be any valid DateFormat string
-    DatePicker.customDateFormatString "MMMM dd, yyyy"
-]
-```
-> For more information about the DatePickerFormat check [DatePickerFormat]
-
->You can check [Custom date and time format strings] Microsoft docs for more information about the format string
-
-**Set Start Display Date**
-
-Sets the first date available to display
-```fsharp
-let startFromYesterday =
-    DateTime.Today.Subtract(TimeSpan.FromDays(1.0))
-DatePicker.create [
-    DatePicker.displayDateStart startFromYesterday
+    DatePicker.yearFormat "yyyy"
+    DatePicker.monthFormat "MMMM"
+    DatePicker.dayFormat "dd"
 ]
 ```
 
-**Set End Display Date**
+>You can check [Custom date and time format strings] Microsoft docs for more information about the format strings.
 
-Sets the last date available to display
-```fsharp
-let showUpToTomorrow =
-    DateTime.Today.Add(TimeSpan.FromDays(1.0))
-DatePicker.create [
-    DatePicker.displayDateStart showUpToTomorrow
-]
-```
+**Limit Year Range**
 
-**Set Watermark**
+> You can check [DateTimeOffset] Microsoft docs for more information about setting time offsets.
 
-Sets the watermark (placeholder) for the TextBox that is included in this control
 ```fsharp
 DatePicker.create [
-    DatePicker.watermark "Select a date"
+    DatePicker.maxYear (DateTimeOffset(DateTime.Now))
 ]
 ```
 
+**Show Only Month and Year**
 
+You can control the visibility of the day, month, and year with similarly named functions.
+
+```fsharp
+DatePicker.create [
+    DatePicker.dayVisible false
+]
+```
+
+**Register Selected Date**
+
+```fsharp
+DatePicker.create [
+    DatePicker.onSelectedDateChanged (fun dateOffset -> OnChangeDateOffset dateOffset |> dispatch)
+]
+```

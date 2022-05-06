@@ -3,11 +3,12 @@ layout: control
 name: NativeMenu
 group: controls
 ---
-[NativeMenu]: https://avaloniaui.net/docs/controls/nativemenu
+[NativeMenu]: https://docs.avaloniaui.net/docs/controls/nativemenu
+[NativeMenu API]: http://reference.avaloniaui.net/api/Avalonia.Controls/NativeMenu
 [announcement]: https://avaloniaui.net/blog/#osx-linux-native-menus
 [in this issue]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/issues/113
 
-> You can check the [NativeMenu] Avalonia docs for more information
+> You can check the [NativeMenu] and [NativeMenu API] Avalonia docs for more information
 
 Native menus were introduced in Avalonia in version 0.9.0, you can check the [announcement] to see a brief explanation on how to use them in Avalonia Applications.
 

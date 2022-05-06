@@ -3,7 +3,7 @@ layout: control
 name: RadioButton
 group: controls
 ---
-[RadioButton]: https://avaloniaui.net/docs/controls/radiobutton
+[RadioButton]: https://docs.avaloniaui.net/docs/controls/radiobutton
 [RadioButton API]: http://reference.avaloniaui.net/api/Avalonia.Controls/RadioButton/
 [RadioButton.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/RadioButton.fs
 

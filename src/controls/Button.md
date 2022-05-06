@@ -3,12 +3,13 @@ layout: control
 name: Button
 group: controls
 ---
-[Button]: https://avaloniaui.net/docs/controls/button
+[Button]: https://docs.avaloniaui.net/docs/controls/button
+[Button API]: http://reference.avaloniaui.net/api/Avalonia.Controls/Button/
+[Button.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Button.fs
 [Views and Attributes]: guides/Views-and-Attributes.html
 [Click Mode]: http://reference.avaloniaui.net/api/Avalonia.Controls/ClickMode/
-[Button.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Button.fs
 
-> *Note*: You can check the Avalonia docs for the [Button] if you need more information.
+> *Note*: You can check the Avalonia docs for the [Button] and [Button API] if you need more information.
 >
 > For Avalonia.FuncUI's DSL properties you can check [Button.fs]
 
@@ -18,19 +19,19 @@ Buttons are basic controls for any application you may build, buttons are often 
 
 > You can check the general usage of Avalonia.FuncUI's views and attributes in the following link [Views and Attributes]
 
-Create a Button
+**Create a Button**
 ```fsharp
 Button.create []
 ```
 
-Register Click
+**Register Click**
 ```fsharp
 Button.create [
 	Button.onClick(fun _ -> dispatch MyMsg)
 ]
 ```
 
-Set Click Mode
+**Set Click Mode**
 ```fsharp
 Button.create [
 	Button.clickMode ClickMode.Press
@@ -42,7 +43,7 @@ Button.create [
 ```
 > for more information check the [Click Mode] docs
 
-Set Content
+**Set Content**
 ```fsharp
 Button.create [ Button.content "My Button" ]
 ```
@@ -63,3 +64,5 @@ Button.create [
 	Button.content iconAndTextBlock
 ]
 ```
+
+

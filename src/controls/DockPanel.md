@@ -3,7 +3,7 @@ layout: control
 name: DockPanel
 group: controls
 ---
-[DockPanel]: https://avaloniaui.net/docs/controls/dockpanel
+[DockPanel]: https://docs.avaloniaui.net/docs/controls/dockpanel
 [DockPanel API]: http://reference.avaloniaui.net/api/Avalonia.Controls/DockPanel/
 [DockPanel.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Panels/DockPanel.fs
 

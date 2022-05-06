@@ -3,14 +3,14 @@ layout: control
 name: TabControl
 group: controls
 ---
+[TabControl]: http://docs.avaloniaui.net/docs/controls/tabcontrol
 [TabControl API]: http://reference.avaloniaui.net/api/Avalonia.Controls/TabControl/
 [TabControl.fs]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/TabControl.fs
-[TabControl]: http://avaloniaui.net/docs/controls/tabcontrol
 [example]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.ControlCatalog/Views/MainView.fs
 [ViewBuilder]: https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.ControlCatalog/Views/MainView.fs#L36
 [HostControl]: controls/HostControl.html
 
-> *Note*: You can check the Avalonia docs for the [TabControl API] and [TabControl] if you need more information.
+> *Note*: You can check the Avalonia docs for the [TabControl] and [TabControl API] if you need more information.
 >
 > For Avalonia.FuncUI's DSL properties you can check [TabControl.fs]
 
