@@ -1,0 +1,539 @@
+<html class="has-navbar-fixed-top">
+  <head>
+    <meta charSet="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/Avalonia.FuncUI.Docs/images/ms-icon-144x144.png"/>
+    <title>
+      Avalonia.FuncUI
+    </title>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/Avalonia.FuncUI.Docs/images/favicon.png"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/Avalonia.FuncUI.Docs/images/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/Avalonia.FuncUI.Docs/images/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/Avalonia.FuncUI.Docs/images/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/Avalonia.FuncUI.Docs/images/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/Avalonia.FuncUI.Docs/images/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/Avalonia.FuncUI.Docs/images/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/Avalonia.FuncUI.Docs/images/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/Avalonia.FuncUI.Docs/images/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/Avalonia.FuncUI.Docs/images/apple-icon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="/Avalonia.FuncUI.Docs/images/android-icon-192x192.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/Avalonia.FuncUI.Docs/images/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/Avalonia.FuncUI.Docs/images/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/Avalonia.FuncUI.Docs/images/favicon-16x16.png"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-coy.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/Avalonia.FuncUI.Docs/style/style.css"/>
+    <base href="/Avalonia.FuncUI.Docs/"/>
+  </head>
+  <body>
+    <nav class="navbar is-funcui is-fixed-top">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item brand-link" href="/Avalonia.FuncUI.Docs/">
+            <img src="https://raw.githubusercontent.com/AvaloniaCommunity/Avalonia.FuncUI/master/github/img/logo/FuncUI.png" alt="Logo"/>
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+          <a class="navbar-item is-light" href="">
+            Home
+          </a>
+          <a class="navbar-item is-light" href="blog.html">
+            Blog
+          </a>
+          <a class="navbar-item is-light" href="guides.html">
+            Guides
+          </a>
+          <a class="navbar-item is-light" href="release-notes.html">
+            Release Notes
+          </a>
+          <a class="navbar-item is-light" href="about.html">
+            About
+          </a>
+        </div>
+      </div>
+    </nav>
+    <main class="main-content">
+      <aside class="menu main-menu">
+        <p class="menu-label">
+          Guides
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a href="guides/Home.html">
+              Getting Started
+            </a>
+          </li>
+          <li>
+            <a href="guides/Basic-Template.html">
+              Basic Template
+            </a>
+          </li>
+          <li>
+            <a href="guides/Full-Template.html">
+              Full Template
+            </a>
+          </li>
+          <li>
+            <a href="guides/Quickstart-Template.html">
+              Quickstart Template
+            </a>
+          </li>
+          <li>
+            <a href="guides/Views-and-Attributes.html">
+              Views And Attributes
+            </a>
+          </li>
+          <li>
+            <a href="guides/Components.html">
+              Components
+            </a>
+          </li>
+          <li>
+            <a href="guides/Unit-Testing-Avalonia-FuncUI-Apps.html">
+              Unit Testing Avalonia.FuncUI
+            </a>
+          </li>
+          <li>
+            <a href="guides/Hooks.html">
+              Hooks
+            </a>
+          </li>
+          <li>
+            <a href="guides/Bindings.html">
+              How to create bindings
+            </a>
+          </li>
+        </ul>
+        <p class="menu-label">
+          Documentation
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a>
+              Controls
+            </a>
+            <ul>
+              <li>
+                <a href="controls/Border.html">
+                  Border
+                </a>
+              </li>
+              <li>
+                <a href="controls/Button.html">
+                  Button
+                </a>
+              </li>
+              <li>
+                <a href="controls/Calendar.html">
+                  Calendar
+                </a>
+              </li>
+              <li>
+                <a href="controls/CalendarDatePicker.html">
+                  CalendarDatePicker
+                </a>
+              </li>
+              <li>
+                <a href="controls/CheckBox.html">
+                  CheckBox
+                </a>
+              </li>
+              <li>
+                <a href="controls/DatePicker.html">
+                  DatePicker
+                </a>
+              </li>
+              <li>
+                <a href="controls/DockPanel.html">
+                  DockPanel
+                </a>
+              </li>
+              <li>
+                <a href="controls/Expander.html">
+                  Expander
+                </a>
+              </li>
+              <li>
+                <a href="controls/ListBox.html">
+                  ListBox
+                </a>
+              </li>
+              <li>
+                <a href="controls/Menu.html">
+                  Menu
+                </a>
+              </li>
+              <li>
+                <a href="controls/NativeMenu.html">
+                  NativeMenu
+                </a>
+              </li>
+              <li>
+                <a href="controls/NumericUpDown.html">
+                  NumericUpDown
+                </a>
+              </li>
+              <li>
+                <a href="controls/ProgressBar.html">
+                  ProgressBar
+                </a>
+              </li>
+              <li>
+                <a href="controls/RadioButton.html">
+                  RadioButton
+                </a>
+              </li>
+              <li>
+                <a href="controls/RepeatButton.html">
+                  RepeatButton
+                </a>
+              </li>
+              <li>
+                <a href="controls/Slider.html">
+                  Slider
+                </a>
+              </li>
+              <li>
+                <a href="controls/StackPanel.html">
+                  StackPanel
+                </a>
+              </li>
+              <li>
+                <a href="controls/Tabs.html">
+                  TabControl
+                </a>
+              </li>
+              <li>
+                <a href="controls/TextBlock.html">
+                  TextBlock
+                </a>
+              </li>
+              <li>
+                <a href="controls/TextBox.html">
+                  TextBox
+                </a>
+              </li>
+              <li>
+                <a href="controls/TimePicker.html">
+                  TimePicker
+                </a>
+              </li>
+              <li>
+                <a href="controls/ToggleButton.html">
+                  ToggleButton
+                </a>
+              </li>
+              <li>
+                <a href="controls/ToggleSwitch.html">
+                  ToggleSwitch
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p class="menu-label">
+          Release Notes
+        </p>
+        <ul class="menu-list"></ul>
+      </aside>
+      <div class="page-content">
+        <a class="edit-page button is-small is-link is-outlined" href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI.Docs/blob/master/src/guides/Bindings.md">
+          <i class="fa fa-pencil-square-o"></i>
+           Edit this page
+        </a>
+        <article class="guide box">
+          <header class="guide-header">
+            <h1 class="title">
+              How to create bindings
+            </h1>
+            <h4 class="subtitle">
+              Avalonia Community
+            </h4>
+            <section class="tags"></section>
+          </header>
+          <section class="guide-content content">
+            <p>Creating bindings for avalonia controls is fairly easy. You just need to know a little bit about the source of the control and its public properties/events.</p>
+<p>You can create bindings for any public styled/direct properties for example the <code>IsPressed</code> <a href="https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/Button.cs#L78">Property of Button.cs</a></p>
+<pre><code class="language-csharp">public static readonly StyledProperty&lt;bool&gt; IsPressedProperty = 
+    AvaloniaProperty.Register&lt;Button, bool&gt;(nameof(IsPressed));
+</code></pre>
+<p>In the case of an event, the event should be a <code>RoutedEvent</code> for example the <a href="https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/Button.cs#L75">ClickEvent of Button.cs</a></p>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Defines the &lt;see cref=&quot;Click&quot;/&gt; event.
+/// &lt;/summary&gt;
+public static readonly RoutedEvent&lt;RoutedEventArgs&gt; ClickEvent =
+    RoutedEvent.Register&lt;Button, RoutedEventArgs&gt;(nameof(Click), RoutingStrategies.Bubble);
+</code></pre>
+<p>That's all we need to know before we start creating a binding. To create bindings like Avalonia.FuncUI ones, we need to define a module with the name of the control and add two things, a <code>create</code> function and <em>augment</em> the existing control with some static methods.</p>
+<p>Let's check <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/Button.fs">Button.fs</a> in Avalonia.FuncUI.source code</p>
+<pre><code class="language-fsharp">[&lt;AutoOpen&gt;]
+module Button =
+    (* omitting the other existing open statements for clarity *)
+    open Avalonia.Controls
+    open Avalonia.FuncUI.Builder
+    open Avalonia.FuncUI.Types
+    (* omitting the other existing open statements for clarity *)
+
+    let create(attrs: IAttr&lt;Button&gt; list): IView&lt;Button&gt; =
+        ViewBuilder.Create&lt;Button&gt;(attrs)
+
+    type Button with 
+        (* omitting the other existing bindings for clarity *)
+
+        static member isPressed&lt;'t when 't :&gt; Button&gt;(value: bool) : IAttr&lt;'t&gt; =
+            AttrBuilder&lt;'t&gt;.CreateProperty&lt;bool&gt;(Button.IsPressedProperty, value, ValueNone)
+
+        static member onClick&lt;'t when 't :&gt; Button&gt;(func: RoutedEventArgs -&gt; unit, ?subPatchOptions) =
+            AttrBuilder&lt;'t&gt;.CreateSubscription&lt;RoutedEventArgs&gt;(Button.ClickEvent, func, ?subPatchOptions = subPatchOptions)
+
+        (* omitting the other existing bindings for clarity *)
+</code></pre>
+<p>Please note that in the case of events, there is an optional value <code>subPatchOptions</code> that is provided for performance reasons</p>
+<pre><code class="language-fsharp">type [&lt;Struct&gt;] SubPatchOptions =
+    /// Always updates the subscription. This should be used if you can't explicitly express your outer dependencies.
+    | Always
+    /// Never updates the subscription. This should be used most of the time. Use this if you don't depend on outer dependencies.
+    | Never
+    /// Update if 't changed. This is useful if you're using some state ('t) and need to update the subscription if that state changed.
+    | OnChangeOf of obj
+</code></pre>
+<p>this property will indicate to Avalonia.FuncUI when to update a subscription.</p>
+<p>You can also provide overloaded methods to improve the API surface of a control for example in <a href="https://github.com/AvaloniaCommunity/Avalonia.FuncUI/blob/master/src/Avalonia.FuncUI.DSL/TextBlock.fs">Textblock.fs</a> we provide two <code>background</code> functions, one takes an IBrush and the other one takes a string.</p>
+<pre><code class="language-fsharp">
+[&lt;AutoOpen&gt;]
+module TextBlock =
+    open Avalonia
+    open Avalonia.Controls
+    open Avalonia.Media
+    open Avalonia.Media.Immutable
+    open Avalonia.FuncUI.Builder
+    open Avalonia.FuncUI.Types
+
+    let create (attrs: IAttr&lt;TextBlock&gt; list): IView&lt;TextBlock&gt; =
+        ViewBuilder.Create&lt;TextBlock&gt;(attrs)
+
+    type TextBlock with
+        (* omitting other bindings for clarity *)
+
+        static member background&lt;'t when 't :&gt; TextBlock&gt;(value: IBrush) : IAttr&lt;'t&gt; =
+            AttrBuilder&lt;'t&gt;.CreateProperty&lt;IBrush&gt;(TextBlock.BackgroundProperty, value, ValueNone)
+
+        static member background&lt;'t when 't :&gt; TextBlock&gt;(color: string) : IAttr&lt;'t&gt; =
+            color |&gt; Color.Parse |&gt; ImmutableSolidColorBrush |&gt; TextBlock.background
+
+        (* omitting other bindings for clarity *)
+</code></pre>
+<p>If you wanted you could also add a <code>Color</code> overload to ease developer's time if it were the case</p>
+<pre><code class="language-fsharp">static member background&lt;'t when 't :&gt; TextBlock&gt;(color: Color) : IAttr&lt;'t&gt; =
+    color |&gt; ImmutableSolidColorBrush |&gt; TextBlock.background
+</code></pre>
+
+          </section>
+        </article>
+      </div>
+    </main>
+    <footer class="main-footer footer">
+      <aside class="menu">
+        <p class="menu-label">
+          Guides
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a href="guides/Home.html">
+              Getting Started
+            </a>
+          </li>
+          <li>
+            <a href="guides/Basic-Template.html">
+              Basic Template
+            </a>
+          </li>
+          <li>
+            <a href="guides/Full-Template.html">
+              Full Template
+            </a>
+          </li>
+          <li>
+            <a href="guides/Quickstart-Template.html">
+              Quickstart Template
+            </a>
+          </li>
+          <li>
+            <a href="guides/Views-and-Attributes.html">
+              Views And Attributes
+            </a>
+          </li>
+          <li>
+            <a href="guides/Components.html">
+              Components
+            </a>
+          </li>
+          <li>
+            <a href="guides/Unit-Testing-Avalonia-FuncUI-Apps.html">
+              Unit Testing Avalonia.FuncUI
+            </a>
+          </li>
+          <li>
+            <a href="guides/Hooks.html">
+              Hooks
+            </a>
+          </li>
+          <li>
+            <a href="guides/Bindings.html">
+              How to create bindings
+            </a>
+          </li>
+        </ul>
+        <p class="menu-label">
+          Documentation
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a>
+              Controls
+            </a>
+            <ul>
+              <li>
+                <a href="controls/Border.html">
+                  Border
+                </a>
+              </li>
+              <li>
+                <a href="controls/Button.html">
+                  Button
+                </a>
+              </li>
+              <li>
+                <a href="controls/Calendar.html">
+                  Calendar
+                </a>
+              </li>
+              <li>
+                <a href="controls/CalendarDatePicker.html">
+                  CalendarDatePicker
+                </a>
+              </li>
+              <li>
+                <a href="controls/CheckBox.html">
+                  CheckBox
+                </a>
+              </li>
+              <li>
+                <a href="controls/DatePicker.html">
+                  DatePicker
+                </a>
+              </li>
+              <li>
+                <a href="controls/DockPanel.html">
+                  DockPanel
+                </a>
+              </li>
+              <li>
+                <a href="controls/Expander.html">
+                  Expander
+                </a>
+              </li>
+              <li>
+                <a href="controls/ListBox.html">
+                  ListBox
+                </a>
+              </li>
+              <li>
+                <a href="controls/Menu.html">
+                  Menu
+                </a>
+              </li>
+              <li>
+                <a href="controls/NativeMenu.html">
+                  NativeMenu
+                </a>
+              </li>
+              <li>
+                <a href="controls/NumericUpDown.html">
+                  NumericUpDown
+                </a>
+              </li>
+              <li>
+                <a href="controls/ProgressBar.html">
+                  ProgressBar
+                </a>
+              </li>
+              <li>
+                <a href="controls/RadioButton.html">
+                  RadioButton
+                </a>
+              </li>
+              <li>
+                <a href="controls/RepeatButton.html">
+                  RepeatButton
+                </a>
+              </li>
+              <li>
+                <a href="controls/Slider.html">
+                  Slider
+                </a>
+              </li>
+              <li>
+                <a href="controls/StackPanel.html">
+                  StackPanel
+                </a>
+              </li>
+              <li>
+                <a href="controls/Tabs.html">
+                  TabControl
+                </a>
+              </li>
+              <li>
+                <a href="controls/TextBlock.html">
+                  TextBlock
+                </a>
+              </li>
+              <li>
+                <a href="controls/TextBox.html">
+                  TextBox
+                </a>
+              </li>
+              <li>
+                <a href="controls/TimePicker.html">
+                  TimePicker
+                </a>
+              </li>
+              <li>
+                <a href="controls/ToggleButton.html">
+                  ToggleButton
+                </a>
+              </li>
+              <li>
+                <a href="controls/ToggleSwitch.html">
+                  ToggleSwitch
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p class="menu-label">
+          Release Notes
+        </p>
+        <ul class="menu-list"></ul>
+      </aside>
+      <section class="content has-text-centered">
+        <p>
+          Avalonia.FuncUI
+        </p>
+      </section>
+    </footer>
+    <script src="/Avalonia.FuncUI.Docs/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  </body>
+</html>
