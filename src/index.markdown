@@ -18,7 +18,7 @@
 This library allows you to write cross-platform GUI Applications entirely in F# - No XAML, but a declarative Elm-like DSL. MVU (Model-View-Update) architecture support is built in, and bindings to use it with Elmish are also ready to use.
 
 ## Getting started
-Check out the [Wiki](https://github.com/AvaloniaCommunity/Avalonia.FuncUI/wiki) and [Examples](https://github.com/JaggerJo/Avalonia.FuncUI/tree/master/src/Examples).
+Check out the [Wiki](https://github.com/fsprojects/Avalonia.FuncUI/wiki) and [Examples](https://github.com/fsprojects/Avalonia.FuncUI/tree/master/src/Examples).
 
 ### 🧱 [Templates](https://github.com/AvaloniaCommunity/Avalonia.FuncUI.ProjectTemplates)
 
