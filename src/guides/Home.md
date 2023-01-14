@@ -7,7 +7,6 @@ guide-category: beginner
 ---
 [Basic Template]: guides/Basic-Template.html
 [Full Template]: guides/Full-Template.html
-[Quickstart Template]: guides/Quickstart-Template.html
 
 # Welcome to the Avalonia.FuncUI wiki!
 ## Setup
@@ -21,13 +20,12 @@ and then choose one of the following
 dotnet new funcui.basic -n NewApp
 ```
 ```
-dotnet new funcui.full -n NewApp
-```
-```
-dotnet new funcui.quickstart -n NewApp
+dotnet new funcUI.full -n NewApp
 ```
 
+
 You can check these templates in detail here
-- [Basic Template]
-- [Full Template]
-- [Quickstart Template]
+- Basic Template (Components) - To be done
+- Basic Template (Components) - To be done
+- [Basic Template MVU]
+- [Full Template MVU]
